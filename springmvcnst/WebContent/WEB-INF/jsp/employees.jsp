@@ -37,7 +37,7 @@
                                      
                             <td><a href="${pageContext.request.contextPath}/deleteemployee?empId=${employee.empId}">Delete</a>
                             </td>
-                            <td><a href="../action/obrisi_kupca?kupacId=${employee.empId}">Update</a>
+                            <td><a href="${pageContext.request.contextPath}/updateemployee?empId=${employee.empId}">Update</a>
                             </td>
                         </tr>
                     </c:forEach>
