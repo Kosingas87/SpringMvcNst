@@ -2,6 +2,9 @@ package com.nst.springmvc.domen;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 @Entity
@@ -12,15 +15,17 @@ public class Title implements Serializable {
 
 	@Id
 	@Column(name = "titles_id")
-	private int titlesId;
+	private Long titlesId;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name = "from_date")
 	private Date fromDate;
 
 	private String title;
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name = "to_date")
 	private Date toDate;
 
@@ -31,12 +36,23 @@ public class Title implements Serializable {
 
 	public Title() {
 	}
+	public Title(Long titlesId) {
+		this.titlesId=titlesId;
+	}
 
-	public int getTitlesId() {
+	public Title(Long titlesId, Date fromDate, String title, Date toDate, Employee employee) {
+		super();
+		this.titlesId = titlesId;
+		this.fromDate = fromDate;
+		this.title = title;
+		this.toDate = toDate;
+		this.employee = employee;
+	}
+	public Long getTitlesId() {
 		return this.titlesId;
 	}
 
-	public void setTitlesId(int titlesId) {
+	public void setTitlesId(Long titlesId) {
 		this.titlesId = titlesId;
 	}
 

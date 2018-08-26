@@ -60,6 +60,10 @@ public class Employee implements Serializable {
 
 	public Employee() {
 	}
+	public Employee(Long empId) {
+		this.empId=empId;
+	}
+
 
 	public long getEmpId() {
 		return this.empId;
@@ -195,24 +199,23 @@ public class Employee implements Serializable {
 		this.titles = titles;
 	}
 
-	public Title addTitle(Title title) {
-		getTitles().add(title);
-		title.setEmployee(this);
-
-		return title;
-	}
-
-	public Title removeTitle(Title title) {
-		getTitles().remove(title);
-		title.setEmployee(null);
-
-		return title;
-	}
+//	public Title addTitle(Title title) {
+//		getTitles().add(title);
+//		title.setEmployee(this);
+//
+//		return title;
+//	}
+//
+//	public Title removeTitle(Title title) {
+//		getTitles().remove(title);
+//		title.setEmployee(null);
+//
+//		return title;
+//	}
 
 	@Override
 	public String toString() {
-		return "Employee [empId=" + empId + ", birthDate=" + birthDate + ", firstName=" + firstName + ", gender="
-				+ gender + ", hireDate=" + hireDate + ", lastName=" + lastName + "]";
+		return firstName+" "+lastName;
 	}
 
 

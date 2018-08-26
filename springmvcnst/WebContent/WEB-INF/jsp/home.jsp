@@ -9,7 +9,9 @@
 <body>
 <p> Test da li radi<p>
 <p> <a href="${pageContext.request.contextPath}/employees"> Show all employees</a></p>
-<p> <a href="${pageContext.request.contextPath}/addemployees"> Add new employees</a></p>
-<p> <a href="${pageContext.request.contextPath}/addemployees"> update</a></p>
+<p> <a href="${pageContext.request.contextPath}/addemployees"> Add new employee</a></p>
+
+<p> <a href="${pageContext.request.contextPath}/titles"> Show all titles</a></p>
+<p> <a href="${pageContext.request.contextPath}/addtitles"> Add new title</a></p>
 </body>
 </html>

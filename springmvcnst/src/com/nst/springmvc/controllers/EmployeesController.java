@@ -28,7 +28,7 @@ public class EmployeesController {
 	}
 
 	@RequestMapping("/addemployees")
-	public String createOffer(Model model) {
+	public String createEmployee(Model model) {
 
 		return "addemployees";
 	}
