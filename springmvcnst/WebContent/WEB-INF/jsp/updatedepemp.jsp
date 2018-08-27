@@ -18,7 +18,7 @@
 				<tr>
 					<td class="label">Id:</td>
 					<td class="control"><input value="${depemp.deptEmpId}"
-						name="titlesId" type="text"></td>
+						name="deptEmpId" type="text"></td>
 				</tr>
 				<tr>
 					<td class="label">Employee</td>

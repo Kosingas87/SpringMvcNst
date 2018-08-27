@@ -54,19 +54,7 @@ public class Department implements Serializable {
 		this.depEmps = depEmps;
 	}
 
-	public DepEmp addDepEmp(DepEmp depEmp) {
-		getDepEmps().add(depEmp);
-		depEmp.setDepartment(this);
-
-		return depEmp;
-	}
-
-	public DepEmp removeDepEmp(DepEmp depEmp) {
-		getDepEmps().remove(depEmp);
-		depEmp.setDepartment(null);
-
-		return depEmp;
-	}
+	
 
 	public List<DeptManager> getDeptManagers() {
 		return this.deptManagers;
