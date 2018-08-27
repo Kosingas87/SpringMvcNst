@@ -14,7 +14,7 @@ public class Department implements Serializable {
 
 	@Id
 	@Column(name = "dept_id")
-	private int deptId;
+	private long deptId;
 
 	@Column(name = "dept_name")
 	private String deptName;
@@ -30,11 +30,11 @@ public class Department implements Serializable {
 	public Department() {
 	}
 
-	public int getDeptId() {
+	public long getDeptId() {
 		return this.deptId;
 	}
 
-	public void setDeptId(int deptId) {
+	public void setDeptId(long deptId) {
 		this.deptId = deptId;
 	}
 

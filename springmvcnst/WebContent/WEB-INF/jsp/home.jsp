@@ -13,5 +13,8 @@
 
 <p> <a href="${pageContext.request.contextPath}/titles"> Show all titles</a></p>
 <p> <a href="${pageContext.request.contextPath}/addtitles"> Add new title</a></p>
+
+<p> <a href="${pageContext.request.contextPath}/departments"> Show all departments</a></p>
+<p> <a href="${pageContext.request.contextPath}/adddepartment"> Add new department</a></p>
 </body>
 </html>

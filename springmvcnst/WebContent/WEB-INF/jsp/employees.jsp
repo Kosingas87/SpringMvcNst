@@ -35,7 +35,7 @@
                             <td>${employee.birthDate}</td>
                             <td>${employee.hireDate}</td>
                                      
-                            <td><a href="${pageContext.request.contextPath}/deleteemployee?empId=${employee.empId}">Delete</a>
+                            <td><a onclick="if(!(confirm('Are u sure u want to delete? '))) return false" href="${pageContext.request.contextPath}/deleteemployee?empId=${employee.empId}">Delete</a>
                             </td>
                             <td><a href="${pageContext.request.contextPath}/updateemployee?empId=${employee.empId}">Update</a>
                             </td>
