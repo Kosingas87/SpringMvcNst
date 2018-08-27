@@ -2,6 +2,9 @@ package com.nst.springmvc.domen;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 @Entity
@@ -12,21 +15,32 @@ public class DepEmp implements Serializable {
 
 	@Id
 	@Column(name="dept_emp_id")
-	private int deptEmpId;
+	private long deptEmpId;
 
 
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name="from_date")
 	private Date fromDate;
 
 	
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name="to_date")
 	private Date toDate;
 
 	
+
+	public DepEmp(long deptEmpId, Date fromDate, Date toDate, Department department, Employee employee) {
+		super();
+		this.deptEmpId = deptEmpId;
+		this.fromDate = fromDate;
+		this.toDate = toDate;
+		this.department = department;
+		this.employee = employee;
+	}
 
 	//bi-directional many-to-one association to Department
 	@ManyToOne
@@ -44,11 +58,11 @@ public class DepEmp implements Serializable {
 	
 	
 
-	public int getDeptEmpId() {
+	public long getDeptEmpId() {
 		return this.deptEmpId;
 	}
 
-	public void setDeptEmpId(int deptEmpId) {
+	public void setDeptEmpId(long deptEmpId) {
 		this.deptEmpId = deptEmpId;
 	}
 
