@@ -12,7 +12,7 @@ public class DeptManager implements Serializable {
 
 	@Id
 	@Column(name="dept_manager_id")
-	private int deptManagerId;
+	private long deptManagerId;
 
 
 
@@ -43,11 +43,11 @@ public class DeptManager implements Serializable {
 
 	
 
-	public int getDeptManagerId() {
+	public long getDeptManagerId() {
 		return this.deptManagerId;
 	}
 
-	public void setDeptManagerId(int deptManagerId) {
+	public void setDeptManagerId(long deptManagerId) {
 		this.deptManagerId = deptManagerId;
 	}
 
