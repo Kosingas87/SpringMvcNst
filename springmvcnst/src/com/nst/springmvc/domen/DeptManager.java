@@ -2,6 +2,9 @@ package com.nst.springmvc.domen;
 
 import java.io.Serializable;
 import javax.persistence.*;
+
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 @Entity
@@ -19,12 +22,14 @@ public class DeptManager implements Serializable {
 
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name="from_date")
 	private Date fromDate;
 
 	
 
 	@Temporal(TemporalType.DATE)
+	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name="to_date")
 	private Date toDate;
 

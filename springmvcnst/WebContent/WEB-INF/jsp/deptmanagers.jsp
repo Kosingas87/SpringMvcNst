@@ -7,7 +7,7 @@
 <head>
 
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Show  managers in departments:</title>
+<title>All employees in departments:</title>
 </head>
 <body>
 
@@ -27,21 +27,21 @@
 			</tr>
 		</thead>
 		<tbody>
-			<c:forEach var="deptManager" items="${deptManagers}">
+			<c:forEach var="deptmanager" items="${deptmanagers}">
 				<tr>
-					<td>${deptManager.deptManagerId}</td>
-					<td>${deptManager.department}</td>
-					<td>${deptManager.employee}</td>
-					<td>${deptManager.fromDate}</td>
-					<td>${deptManager.toDate}</td>
+					<td>${deptmanager.deptManagerId}</td>
+					<td>${deptmanager.department}</td>
+					<td>${deptmanager.employee}</td>
+					<td>${deptmanager.fromDate}</td>
+					<td>${deptmanager.toDate}</td>
 
 
 
 					<td><a onclick="if(!(confirm('Are u sure u want to delete? '))) return false"
-						href="${pageContext.request.contextPath}/deletedeptmanager?deptManagerId=${deptManager.deptManagerId}">Delete</a>
+						href="${pageContext.request.contextPath}/deletedeptmanager?deptManagerId=${deptmanager.deptManagerId}">Delete</a>
 					</td>
 					<td><a
-						href="${pageContext.request.contextPath}/updatedeptmanager?deptManagerId=${deptManager.deptManagerId}">Update</a>
+						href="${pageContext.request.contextPath}/updatedeptmanager?deptManagerId=${deptmanager.deptManagerId}">Update</a>
 					</td>
 				</tr>
 			</c:forEach>
