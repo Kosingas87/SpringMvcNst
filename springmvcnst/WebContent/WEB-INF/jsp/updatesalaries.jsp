@@ -6,19 +6,19 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Update title</title>
+<title>Update salary</title>
 </head>
 <body>
-	<h1>Update Title</h1>
-	<form action="${pageContext.request.contextPath}/doupdatetitle"
+	<h1>Update salary</h1>
+	<form action="${pageContext.request.contextPath}/doupdatesalaries"
 		method="post">
 
 		<table class="formtable">
-			<c:forEach var="title" items="${titles}">
+			
 				<tr>
-					<td class="label">Title Id:</td>
-					<td class="control"><input value="${title.titlesId}"
-						name="titlesId" type="text"></td>
+					<td class="label">Salary Id:</td>
+					<td class="control"><input value="${salary.salariesId}"
+						name="salariesId" type="text"></td>
 				</tr>
 				<tr>
 					<td class="label">Employee</td>
@@ -34,26 +34,26 @@
 				<tr>
 					<td class="label">From date:</td>
 					<td class="control"><input name="fromDate"
-						value="${title.fromDate}" type="text"></td>
+						value="${salary.fromDate}" type="text"></td>
 				</tr>
 				<tr>
 					<td class="label">To date:</td>
 					<td class="control"><input name="toDate"
-						value="${title.toDate}" type="text"></td>
+						value="${salary.toDate}" type="text"></td>
 				</tr>
 
 				<tr>
 					<td class="label">Title:</td>
-					<td class="control"><input value="${title.title}" name="title"
+					<td class="control"><input value="${salary.salary}" name="salary"
 						type="text"></td>
 				</tr>
 				<tr>
 
 					<td class="label"></td>
-					<td class="control"><input type="submit" value="Update title">
+					<td class="control"><input type="submit" value="Update salary">
 					</td>
 				</tr>
-			</c:forEach>
+		
 		</table>
 
 	</form>

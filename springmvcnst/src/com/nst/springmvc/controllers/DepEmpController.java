@@ -1,6 +1,7 @@
 package com.nst.springmvc.controllers;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import com.nst.springmvc.domen.DepEmp;
 import com.nst.springmvc.domen.Department;
 import com.nst.springmvc.domen.Employee;
-import com.nst.springmvc.domen.Title;
+
 import com.nst.springmvc.service.DepEmpService;
 import com.nst.springmvc.service.DepartmentService;
 import com.nst.springmvc.service.EmployeeService;
@@ -76,7 +77,7 @@ public class DepEmpController {
 			model.addAttribute("departments", departments);
 			return "updatedepemp";
 		}
-
+			
 		@RequestMapping(value = "/doupdatedepemp")
 		public String doUpdate(Model model, DepEmp depEmp, BindingResult result, Long empId,Long deptId) {
 	        Employee employee=employeeService.findByID(empId);
@@ -84,12 +85,13 @@ public class DepEmpController {
 			
 	        depEmp.setEmployee(employee);
 	        depEmp.setDepartment(department);
+	        
 		
 			depEmpService.save(depEmp);
 			List<DepEmp> depEmps = depEmpService.findAll();
 			model.addAttribute("depEmps", depEmps);
 			return "depemp";
 
-		}
+		}	
 		
 }

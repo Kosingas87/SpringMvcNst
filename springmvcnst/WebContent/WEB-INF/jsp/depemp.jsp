@@ -38,10 +38,9 @@
 
 
 					<td><a onclick="if(!(confirm('Are u sure u want to delete? '))) return false"
-						href="${pageContext.request.contextPath}/deletedepemp?deptEmpId=${depemp.deptEmpId}">Delete</a>
+						href="${pageContext.request.contextPath}/deletedepemp?deptEmpId=${depEmp.deptEmpId}">Delete</a>
 					</td>
-					<td><a
-						href="${pageContext.request.contextPath}/updatedepemp?deptEmpId=${depemp.deptEmpId}}">Update</a>
+					<td><a href="${pageContext.request.contextPath}/updatedepemp?deptEmpId=${depEmp.deptEmpId}">Update</a>
 					</td>
 				</tr>
 			</c:forEach>

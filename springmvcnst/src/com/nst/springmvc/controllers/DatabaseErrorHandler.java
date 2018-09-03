@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 public class DatabaseErrorHandler {
 	@ExceptionHandler(DataAccessException.class)
 	public String handleDatabaseException(DataAccessException e) {
+	System.out.println(e.getMessage());
+		System.out.println(e.getClass());
 		return "error";
 	}
 }

@@ -4,10 +4,8 @@ import java.io.Serializable;
 import javax.persistence.*;
 
 @Entity
-@Table(name="nonsales")
-@DiscriminatorValue("N")
-@NamedQuery(name="NonSale.findAll", query="SELECT n FROM NonSale n")
-public class NonSale extends Salary implements Serializable {
+@DiscriminatorValue("NS")
+public class NonSale extends Salary{
 	private static final long serialVersionUID = 1L;
 	@Column(name="bonus")
 	private float bonus;

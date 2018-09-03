@@ -20,5 +20,7 @@
 <p> <a href="${pageContext.request.contextPath}/adddepemp"> Add employee to department</a></p>
 <p> <a href="${pageContext.request.contextPath}/deptmanagers"> Show all managers in departments</a></p>
 <p> <a href="${pageContext.request.contextPath}/adddeptmanager"> Add managers for department</a></p>
+<p> <a href="${pageContext.request.contextPath}/salaries"> Show all salaries</a></p>
+<p> <a href="${pageContext.request.contextPath}/addsalaries"> Add salary to employee</a></p>
 </body>
 </html>
