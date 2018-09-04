@@ -10,6 +10,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.nst.springmvc.domen.Employee;
 import com.nst.springmvc.service.EmployeeService;
@@ -34,11 +35,15 @@ public class EmployeesController {
 	}
 
 	@RequestMapping(value = "/docreate", method = RequestMethod.POST)
-	public String doCreate(Model model, Employee employee, BindingResult result) {
+	public String doCreate(Model model, Employee employee, BindingResult result,RedirectAttributes attributes) {
 
 		employeeService.save(employee);
 		System.out.println(employee);
 		System.out.println("Employee added successfully");
+		
+		
+		model.addAttribute("message","Employee added succesfully!!!");
+		
 		return "addemployees";
 
 	}
@@ -66,6 +71,7 @@ public class EmployeesController {
 		employeeService.save(employee);
 		List<Employee> employees = employeeService.findAll();
 		model.addAttribute("employees", employees);
+		model.addAttribute("message","Employee updated succesfully!!!");
 		return "employees";
 
 	}

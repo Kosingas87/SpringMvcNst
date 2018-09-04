@@ -48,8 +48,9 @@ public class TitlesController {
 		titleService.save(title);
 		System.out.println(title);
 		System.out.println("Title added successfully");
-		
-		
+		model.addAttribute("message","Title added succesfully!!!");
+		List<Employee> employees = employeeService.findAll();
+		model.addAttribute("employees", employees);
 		return "addtitles";
 
 	}
@@ -83,6 +84,7 @@ public class TitlesController {
 		titleService.save(title);
 		List<Title> titles = titleService.findAll();
 		model.addAttribute("titles", titles);
+		model.addAttribute("message","Title updated succesfully!!!");
 		return "titles";
 
 	}

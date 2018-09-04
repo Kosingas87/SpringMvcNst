@@ -42,7 +42,7 @@ public class DepartmentController {
 		departmentService.save(department);
 		System.out.println(department);
 		System.out.println("department added successfully");
-		
+		model.addAttribute("message","Department added succesfully!!!");
 		
 		return "adddepartment";
 
@@ -73,6 +73,7 @@ public class DepartmentController {
 		departmentService.save(department);
 		List<Department> departments = departmentService.findAll();
 		model.addAttribute("departments", departments);
+		model.addAttribute("message","Department updated succesfully!!!");
 		return "departments";
 
 	}
