@@ -729,7 +729,7 @@ footer {
 
 			<div id="body" class="col-sm-8 text-left container-fluid ">
 				<br>
-				<h1>Add new title to employee</h1>
+				<h1>Update title</h1>
 
 
 
@@ -737,67 +737,68 @@ footer {
 					<h4 style="color: green;">${message}</h4>
 
 				</div>
-				<form name="myformtitle" method="POST"
-					action="${pageContext.request.contextPath}/docreatetitle"
-					onsubmit="return validateFormTitle()">
-
-					<div class="form-group row">
-						<label for="titlesId" class="col-sm-2 col-form-label">Id:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="titlesId"
-								id="titlesId" placeholder="number">
+				<form name="myformsalary" method="POST"
+					action="${pageContext.request.contextPath}/doupdatesalaries"
+					>
+					<c:forEach var="salary" items="${salaries}">
+						<div class="form-group row">
+							<label for="titlesId" class="col-sm-2 col-form-label">Id:</label>
+							<div class="col-sm-8">
+								<input type="text" value="${salary.salariesId}" class="form-control" name="titlesId"
+									id="titlesId" placeholder="number">
+							</div>
 						</div>
-					</div>
-					<div class="form-group row">
-						
-						<label for="employee" class="col-sm-2 col-form-label">Select
-									employee</label>
+						<div class="form-group row">
+
+							<label for="employee" class="col-sm-2 col-form-label">Select
+								employee</label>
 							<div class="input-group-prepend col-sm-8">
-								
-							
-							<select class="custom-select" id="empId" name="empId">
-								<c:forEach var="employee" items="${employees}">
-									<option value="${employee.empId}">${employee.firstName}
-										${employee.lastName}</option>
-								</c:forEach>
-							</select>
-							
-						</div>
-
-					</div>
-
-					<div class="form-group row">
-						<label for="fromDate" class="col-sm-2 col-form-label">From
-							date:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" id="fromDate"
-								name="fromDate" placeholder="yyyy-mm-dd">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="toDate" class="col-sm-2 col-form-label">To
-							date:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" id="toDate" name="toDate"
-								placeholder="yyyy-mm-dd">
-						</div>
-					</div>
-					<div class="form-group row">
-						<label for="title" class="col-sm-2 col-form-label">Title:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" id="title" name="title"
-								placeholder="Java developer">
-						</div>
-					</div>
 
 
+								<select class="custom-select" id="empId" name="empId">
+									<c:forEach var="employee" items="${employees}">
+										<option value="${employee.empId}">${employee.firstName}
+											${employee.lastName}</option>
+									</c:forEach>
+								</select>
 
-					<div class="form-group row">
-						<div class="col-sm-10">
-							<button type="submit" class="btn btn-primary">Add title
-							</button>
+							</div>
+
 						</div>
-					</div>
+
+						<div class="form-group row">
+							<label for="fromDate" class="col-sm-2 col-form-label">From
+								date:</label>
+							<div class="col-sm-8">
+								<input type="text" value="${salary.fromDate}" class="form-control" id="fromDate"
+									name="fromDate" placeholder="yyyy-mm-dd">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="toDate"  class="col-sm-2 col-form-label">To
+								date:</label>
+							<div class="col-sm-8">
+								<input type="text" value="${salary.toDate}" class="form-control" id="toDate"
+									name="toDate" placeholder="yyyy-mm-dd">
+							</div>
+						</div>
+						<div class="form-group row">
+							<label for="title" class="col-sm-2 col-form-label">Salary:</label>
+							<div class="col-sm-8">
+								<input type="text" value="${salary.salary}" class="form-control" id="salary" name="salary"
+									placeholder="60000">
+							</div>
+						</div>
+
+
+
+						<div class="form-group row">
+							<div class="col-sm-10">
+								<button type="submit" class="btn btn-primary">Update salary
+								</button>
+							</div>
+						</div>
+					</c:forEach>
 				</form>
 
 				<hr>

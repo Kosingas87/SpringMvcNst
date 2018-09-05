@@ -1,3 +1,9 @@
+
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -197,8 +203,141 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-   
+    
     <script>
+   
+    function bonus1() {
+		if (document.getElementById('show2').checked) {
+			var result_styles = document.getElementById('percnt').style;
+			result_styles.display = 'block';
+		} else {
+			var result_styles = document.getElementById('percnt').style;
+			result_styles.display = 'none';
+
+		}
+	}
+
+	function fixed() {
+		if (document.getElementById('show1').checked) {
+			var result_style = document.getElementById('fixed').style;
+			result_style.display = 'block';
+		} else {
+			var result_style = document.getElementById('fixed').style;
+			result_style.display = 'none';
+
+		}
+	}
+    function validateFormSalary2(){
+		//checking the id
+		var salariesId = document.forms["myformsalary2"]["salariesId"]
+		if (salariesId.value == ""){
+			alert("Please enter  salaries Id");
+			document.myformsalary2.salariesId.focus();
+			return false;
+		} else {
+            var regExpSalariesId = /^^[1-9][0-9]?$|^100$/;
+			if (!regExpSalariesId.test(salariesId.value)){
+				alert("Please enter salaries id in correct format 1- 100");
+				document.myformsalary2.salariesId.focus();
+				return false;
+			} 
+			
+		
+		}
+        //checking the salary
+		var salary = document.forms["myformsalary2"]["salary"]
+		if (salary.value == ""){
+			alert("Please enter salary name");
+			document.myformsalary2.salary.focus();
+			return false;
+		} else {
+			var regExpSalary = /^[0-9]*$/;
+			if (!regExpSalary.test(salary.value)){
+				alert("Please enter salary in correct format");
+				document.myformsalary2.salary.focus();
+				return false;
+			} 
+            if (salary.value<25000 || salary.value>1000000){
+                    alert("Salary must be between 25000 and 1000000");
+                    document.myformsalary2.salary.focus();
+			return false;
+            }
+		}
+       // check from date
+		var fromDate = document.forms["myformsalary2"]["fromDate"]
+		if(fromDate.value == ""){
+			alert("Please enter from date");
+			document.myformsalary2.fromDate.focus();
+			return false;
+		} else {
+			
+			var regExpFromDate =/^(19[8-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
+			if(!regExpFromDate.test(fromDate.value)){
+				alert("From date is not in correct format");
+				document.myformsalary2.fromDate.focus();
+				return false;
+			}
+		}
+      //  check to date
+		var toDate = document.forms["myformsalary2"]["toDate"]
+		if(toDate.value == ""){
+			alert("Please enter to date");
+			document.myformsalary2.toDate.focus();
+			return false;
+		} else {
+			
+			var regExpToDate = /^(19[8-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
+			if(!regExpToDate.test(toDate.value)){
+				alert("To date is not in correct format");
+				document.myformsalary2.toDate.focus();
+				return false;
+			}
+		}
+        //check if the employee was selected
+		if (document.getElementById("employee").value == "0"){
+			alert("You must select employee");
+			return false;
+		}
+		 //checking bonus
+		var bonus = document.forms["myformsalary2"]["bonus"]
+		if (bonus.value == ""){
+			alert("Please enter bonus");
+			document.myformsalary2.bonus.focus();
+			return false;
+		} else {
+			var regExpSalary = /^[0-9]*$/;
+			if (!regExpSalary.test(bonus.value)){
+				alert("Please enter bonus in correct format");
+				document.myformsalary2.bonus.focus();
+				return false;
+			} 
+            if (bonus.value<1000 || bonus.value>50000){
+                    alert("Bonus must be between 1000 and 50000");
+                    document.myformsalary2.bonus.focus();
+			return false;
+            }
+		}
+		 //checking bonus
+		var percnt = document.forms["myformsalary2"]["commision"]
+		if (percnt.value == ""){
+			alert("Please enter percent");
+			 document.myformsalary2.commision.focus();
+			return false;
+		} else {
+			var regExpSalary = /^[0-9]*$/;
+			if (!regExpSalary.test(percnt.value)){
+				alert("Please enter percent in correct format");
+				 document.myformsalary2.commision.focus();
+				return false;
+			} 
+            if (percnt.value<5 || percnt.value>50){
+                    alert("Percent must be between 5 and 50");
+                    document.myformsalary2.commision.focus();
+			return false;
+            }
+		}
+        
+        }
             function validateFormSalary(){
 			//checking the id
 			var salariesId = document.getElementById("salariesId");
@@ -235,7 +374,7 @@
 				return false;
                 }
 			}
-            //check from date
+           // check from date
 			var fromDate = document.getElementById("fromDate");
 			if(fromDate.value == ""){
 				alert("Please enter from date");
@@ -243,14 +382,14 @@
 				return false;
 			} else {
 				
-				var regExpFromDate = /^(|(0[1-9])|(1[0-2]))\/((0[1-9])|(1\d)|(2\d)|(3[0-1]))\/((\d{4}))$/;
+				var regExpFromDate =/^(19[8-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
 				if(!regExpFromDate.test(fromDate.value)){
 					alert("From date is not in correct format");
 					fromDate.focus();
 					return false;
 				}
 			}
-            //check to date
+          //  check to date
 			var toDate = document.getElementById("toDate");
 			if(toDate.value == ""){
 				alert("Please enter to date");
@@ -258,7 +397,7 @@
 				return false;
 			} else {
 				
-				var regExpToDate = /^(|(0[1-9])|(1[0-2]))\/((0[1-9])|(1\d)|(2\d)|(3[0-1]))\/((\d{4}))$/;
+				var regExpToDate = /^(19[8-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
 				if(!regExpToDate.test(toDate.value)){
 					alert("To date is not in correct format");
 					toDate.focus();
@@ -269,6 +408,44 @@
 			if (document.getElementById("employee").value == "0"){
 				alert("You must select employee");
 				return false;
+			}
+			 //checking bonus
+			var salary = document.getElementById("bonus");
+			if (salary.value == ""){
+				alert("Please enter bonus");
+				bonus.focus();
+				return false;
+			} else {
+				var regExpSalary = /^[0-9]*$/;
+				if (!regExpSalary.test(salary.value)){
+					alert("Please enter bonus in correct format");
+					bonus.focus();
+					return false;
+				} 
+                if (salary.value<1000 || salary.value>50000){
+                        alert("Bonus must be between 1000 and 50000");
+				bonus.focus();
+				return false;
+                }
+			}
+			 //checking bonus
+			var salary = document.getElementById("percnt");
+			if (salary.value == ""){
+				alert("Please enter percent");
+				commision.focus();
+				return false;
+			} else {
+				var regExpSalary = /^[0-9]*$/;
+				if (!regExpSalary.test(salary.value)){
+					alert("Please enter percent in correct format");
+					commision.focus();
+					return false;
+				} 
+                if (salary.value<5 || salary.value>50){
+                        alert("Bonus must be between 5 and 50");
+                        commision.focus();
+				return false;
+                }
 			}
             
             }
@@ -339,6 +516,7 @@
 				alert("You must select employee");
 				return false;
 			}
+			 
             
             }
             
@@ -558,10 +736,11 @@
         });
         $(function () {
             $("#datepicker-2").datepicker();
-            $("#birthDate").datepicker();
-            $("#hireDate").datepicker();
-            $("#fromDate").datepicker();
-            $("#toDate").datepicker();
+            $("#birthDate").datepicker({dateFormat : 'yy-mm-dd'});
+            $("#hireDate").datepicker({dateFormat : 'yy-mm-dd'});
+            $("#fromDate").datepicker({dateFormat : 'yy-mm-dd'});
+            $("#toDate").datepicker({dateFormat : 'yy-mm-dd'});
+            
         });
 
         $(document).ready(function singleClick() {
@@ -600,7 +779,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Company</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -610,7 +789,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item ">
+                <li class="nav-item active">
                     <a class="nav-link" href="index.html">
                         <ion-icon name="home"></ion-icon> Home</a>
                 </li>
@@ -620,8 +799,8 @@
                         <ion-icon name="contacts"></ion-icon> Employees
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="employees.html">Show all employees</a>
-                        <a class="dropdown-item" href="addemployee.html">Add new employee</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/employees">Show all employees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addemployees"">Add new employee</a>
 
                 </li>
 
@@ -631,8 +810,8 @@
                         <ion-icon name="briefcase"></ion-icon> Departments
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="departments.html">Show all departments</a>
-                        <a class="dropdown-item" href="adddepartments.html">Add new department</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/departments">Show all departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/adddepartment">Add new department</a>
 
                 </li>
                 <li class="nav-item dropdown">
@@ -642,18 +821,38 @@
                         </span> Work titles
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="titles.html">Show all work titles for employeees</a>
-                        <a class="dropdown-item" href="addtitle.html">Add new work titles for employee</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/titles">Show all work titles for employeees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addtitles">Add new work titles for employee</a>
 
                 </li>
-                <li class="nav-item dropdown active">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <ion-icon name="cash"></ion-icon> Salaries
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="salaries.html">Show all salaries for employeees</a>
-                        <a class="dropdown-item" href="addsalary.html">Add new salary for employee</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\salaries">Show all salaries for employeees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\addsalaries">Add new salary for employee</a>
+
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                       <ion-icon name="people"></ion-icon> Employees in departments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\depemp">Show all employees in departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddepemp">Add employee to department</a>
+
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                       <ion-icon name="ribbon"></ion-icon> Managers in departments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\deptmanagers">Show all managers in departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddeptmanager">Add manager to department</a>
 
                 </li>
             </ul>
@@ -742,59 +941,168 @@
             </div>
             <div id="body" class="col-sm-8 text-left container-fluid ">
                 <br>
-                <h1>Add new salary to employee</h1>
-                <br>
-                <br>
-                <form method="POST" onsubmit="return validateFormSalary()">
-                    <div class="form-group row">
-                        <label for="salariesId" class="col-sm-2 col-form-label">Id:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="salariesId" placeholder="number">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="fromDate" class="col-sm-2 col-form-label">From date:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="fromDate" placeholder="mm/dd/yyyy">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="toDate" class="col-sm-2 col-form-label">To date:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="toDate" placeholder="mm/dd/yyyy">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="title" class="col-sm-2 col-form-label">Salary:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="salary" placeholder="70000">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="employee" class="col-sm-2 col-form-label">Employee:</label>
-                        <div class="col-sm-8">
-                            <select id="employee" class="custom-select" required>
-                                <option value="0">[Select employee]</option>
-                                
-                                <option value="1">Joe Johnes</option>
-                                <option value="2">Mo Wiliams</option>
-                                <option value="3">John Doe</option>
-                                <option value="4">Jane Hill</option>
-                                
-                            </select>
-                        </div>
-                    </div>
-        
-        
-                  
-                   
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <button type="submit"  class="btn btn-primary">Add Salary to employee</button>
-                        </div>
-                    </div>
-                </form>
+               
+                <h1>Add new salary for employee</h1>
+                
+	<div class="alert alert-light text-center" role="alert">
+					<h4 style="color: green;">${message}</h4>
 
+				</div>
+				<p>Type of bonus:</p>
+				<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox" id="show1"
+					name="chkBox" onclick="fixed()">
+  <label class="form-check-label" for="inlineCheckbox1">Fixed</label>
+</div>
+<div class="form-check form-check-inline">
+  <input class="form-check-input" type="checkbox"  id="show2" name="chkBox2" onclick="bonus1()">
+  <label class="form-check-label" for="inlineCheckbox2">Percentage</label>
+</div>
+
+				
+					
+					<div id="mydiv1">
+              	<form id="fixed" style="display: none; " name="myformsalary" method="POST"
+					action="${pageContext.request.contextPath}/docreatesalarynonsale"
+					onsubmit="return validateFormSalary()">
+
+					<div class="form-group row">
+						<label for="salariesId" class="col-sm-2 col-form-label">Id:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="salariesId"
+								id="salariesId" placeholder="1-100">
+						</div>
+					</div>
+					<div class="form-group row">
+						
+						<label for="employee" class="col-sm-2 col-form-label">Select
+									employee</label>
+							<div class="input-group-prepend col-sm-8">
+								
+							
+							<select class="custom-select" id="empId" name="empId">
+								<c:forEach var="employee" items="${employees}">
+									<option value="${employee.empId}">${employee.firstName}
+										${employee.lastName}</option>
+								</c:forEach>
+							</select>
+							
+						</div>
+
+					</div>
+
+					<div class="form-group row">
+						<label for="fromDate" class="col-sm-2 col-form-label">From
+							date:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="fromDate"
+								name="fromDate" placeholder="yyyy-mm-dd">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="toDate" class="col-sm-2 col-form-label">To
+							date:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="toDate" name="toDate"
+								placeholder="yyyy-mm-dd">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="salary" class="col-sm-2 col-form-label">Salary:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="salary" name="salary"
+								placeholder="60000">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="bonus" class="col-sm-2 col-form-label">Fixed bonus:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="bonus" name="bonus"
+								placeholder="10000">
+						</div>
+					</div>
+
+
+
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Add salary
+							</button>
+						</div>
+					</div>
+				</form>
+				</div>
+				<div id="mydiv2">
+				<form id="percnt" style="display: none;" name="myformsalary2" method="POST"
+					action="${pageContext.request.contextPath}/docreatesalarysale"
+					onsubmit="return validateFormSalary2()">
+
+					<div class="form-group row">
+						<label for="salariesId" class="col-sm-2 col-form-label">Id:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="salariesId"
+								id="salariesId" placeholder="1">
+						</div>
+					</div>
+					<div class="form-group row">
+						
+						<label for="employee" class="col-sm-2 col-form-label">Select
+									employee</label>
+							<div class="input-group-prepend col-sm-8">
+								
+							
+							<select class="custom-select" id="empId1" name="empId">
+								<c:forEach var="employee" items="${employees}">
+									<option value="${employee.empId}">${employee.firstName}
+										${employee.lastName}</option>
+								</c:forEach>
+							</select>
+							
+						</div>
+
+					</div>
+
+					<div class="form-group row">
+						<label for="fromDate" class="col-sm-2 col-form-label">From
+							date:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="fromDate"
+								name="fromDate" placeholder="yyyy-mm-dd">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="toDate" class="col-sm-2 col-form-label">To
+							date:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="toDate" name="toDate"
+								placeholder="yyyy-mm-dd">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="salary" class="col-sm-2 col-form-label">Salary:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="salary" name="salary"
+								placeholder="60000">
+						</div>
+					</div>
+					<div class="form-group row">
+						<label for="commision" class="col-sm-2 col-form-label">Bonus in percent:</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" id="commision" name="commision"
+								placeholder="10000">
+						</div>
+					</div>
+
+
+
+					<div class="form-group row">
+						<div class="col-sm-10">
+							<button type="submit" class="btn btn-primary">Add salary
+							</button>
+						</div>
+					</div>
+				</form>
+</div>
 
                 <hr>
 

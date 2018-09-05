@@ -570,74 +570,96 @@ footer {
 
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-		<a class="navbar-brand" href="#">Company</a>
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Company</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav mr-auto">
 
-				<li class="nav-item active"><a class="nav-link"
-					href="index.html"> <ion-icon name="home"></ion-icon> Home
-				</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <ion-icon name="contacts"></ion-icon>
-						Employees
-				</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="employees.html">Show all
-							employees</a> <a class="dropdown-item" href="addemployee.html">Add
-							new employee</a></li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="index.html">
+                        <ion-icon name="home"></ion-icon> Home</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <ion-icon name="contacts"></ion-icon> Employees
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/employees">Show all employees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addemployees"">Add new employee</a>
 
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <ion-icon name="briefcase"></ion-icon>
-						Departments
-				</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="departments.html">Show all
-							departments</a> <a class="dropdown-item" href="adddepartments.html">Add
-							new department</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <ion-icon name="school"></ion-icon> </span>
-						Work titles
-				</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="titles.html">Show all work
-							titles for employeees</a> <a class="dropdown-item"
-							href="addtitle.html">Add new work titles for employee</a></li>
-				<li class="nav-item dropdown"><a
-					class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-					role="button" data-toggle="dropdown" aria-haspopup="true"
-					aria-expanded="false"> <ion-icon name="cash"></ion-icon>
-						Salaries
-				</a>
-					<div class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<a class="dropdown-item" href="salaries.html">Show all
-							salaries for employeees</a> <a class="dropdown-item"
-							href="addsalary.html">Add new salary for employee</a></li>
-			</ul>
-			<ul class="navbar-nav ml-auto">
+                </li>
 
-				<li class="nav-item active"><a class="nav-link" href="#"> <ion-icon
-							name="log-in"></ion-icon> Sign in
-				</a></li>
-				<li class="nav-item active"><a class="nav-link" href="#"> <ion-icon
-							name="log-out"></ion-icon> Logout
-				</a></li>
-			</ul>
-		</div>
-	</nav>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <ion-icon name="briefcase"></ion-icon> Departments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/departments">Show all departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/adddepartment">Add new department</a>
+
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <ion-icon name="school"></ion-icon>
+                        </span> Work titles
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/titles">Show all work titles for employeees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addtitles">Add new work titles for employee</a>
+
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                        <ion-icon name="cash"></ion-icon> Salaries
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\salaries">Show all salaries for employeees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\addsalaries">Add new salary for employee</a>
+
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                       <ion-icon name="people"></ion-icon> Employees in departments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\depemp">Show all employees in departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddepemp">Add employee to department</a>
+
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                       <ion-icon name="ribbon"></ion-icon> Managers in departments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\deptmanagers">Show all managers in departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddeptmanager">Add manager to department</a>
+
+                </li>
+            </ul>
+            <ul class="navbar-nav ml-auto">
+
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <ion-icon name="log-in"></ion-icon> Sign in</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">
+                        <ion-icon name="log-out"></ion-icon> Logout</a>
+                </li>
+            </ul>
+            </div>
+    </nav>
 
 
 	<div class="container-fluid text-center">
@@ -764,7 +786,7 @@ footer {
 							<label for="title" class="col-sm-2 col-form-label">Title:</label>
 							<div class="col-sm-8">
 								<input type="text" value="${title.title}" class="form-control" id="title" name="title"
-									placeholder="yyyy-mm-dd">
+									placeholder="Java Developer">
 							</div>
 						</div>
 

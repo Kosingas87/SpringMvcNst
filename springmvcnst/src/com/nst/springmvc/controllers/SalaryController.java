@@ -54,8 +54,9 @@ public class SalaryController {
 		salaryService.save(sale);
 		System.out.println(sale);
 		System.out.println("Sale salary added successfully");
-		
-		
+		model.addAttribute("message","Salary added succesfully!!!");
+		List<Employee> employees = employeeService.findAll();
+		model.addAttribute("employees", employees);
 		return "addsalaries";
 
 	}
@@ -68,8 +69,9 @@ public class SalaryController {
 		salaryService.save(nonSale);
 		System.out.println(nonSale);
 		System.out.println("Non sale salary added successfully");
-		
-		
+		List<Employee> employees = employeeService.findAll();
+		model.addAttribute("employees", employees);
+		model.addAttribute("message","Salary added succesfully!!!");
 		return "addsalaries";
 
 	}
@@ -80,7 +82,7 @@ public class SalaryController {
 		salaries.add(salary);
 		List<Employee> employees = employeeService.findAll();
 		model.addAttribute("employees", employees);
-		model.addAttribute("salary", salary);
+		model.addAttribute("salaries", salaries);
 		return "updatesalaries";
 	}
 	@RequestMapping(value = "/doupdatesalaries")
@@ -98,7 +100,7 @@ public class SalaryController {
        System.out.println(employee);
       nonSale.setEmployee(employee);
 		
-		
+      model.addAttribute("message","Salary updated succesfully!!!");
 	
 		salaryService.save(nonSale);
 		List<Salary> salaries = salaryService.findAll();

@@ -1,3 +1,9 @@
+
+<%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
+        <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,7 +14,7 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
+     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
 
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
@@ -17,46 +23,37 @@
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyB05Lu_HJONKdZ-_5gusGWznK9ryY2gcog"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-
-
+	<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
 
 
     <style>
-        #body {
+        #body{
             min-height: 1000px;
         }
-
         .ui-widget-header,
         .ui-state-default,
-        #button1,
-        #button2,
-        #open {
+        #button1,#button2,#open{
             box-shadow: 5px 5px 2px grey;
         }
-
-        #footer1 {
-            background: #5A5A66;
-        }
-
         ui-button {
             background: lightblue;
             border: 1px solid blue;
             color: black;
             font-weight: bold;
         }
-
-        #fading p {
-            display: none;
-            padding: 20px;
-            background: #DDA0DD;
-
+        #fading p{
+            display:none;
+			padding:20px;
+			background: #DDA0DD;
+            
         }
-
-        #fading li {
-
-            list-style: none;
+        #fading li{
+            
+			list-style: none;
         }
-
+       
 
         #tales1 {
             width: 100%;
@@ -99,8 +96,8 @@
         }
 
         #profile1 {
-            background-image: url("resources/img/search2.jpg");
-
+            background-image: url("${pageContext.request.contextPath}/static/resources/img/search2.jpg");
+            
         }
 
         #tired {
@@ -141,7 +138,7 @@
             margin: auto;
         }
 
-
+       
 
         #rightsidebar {
             background: silver;
@@ -177,6 +174,9 @@
         footer {
             background: #5A5A66;
         }
+        #footer1 {
+            background: #5A5A66;
+        }
 
         .ui-widget-content {
             border: 1px solid #dddddd;
@@ -197,8 +197,12 @@
       <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+   
     <script>
+    $(document).ready(function () {
+    	  $('#dtBasicExample').DataTable();
+    	  $('.dataTables_length').addClass('bs-select');
+    	});
             function validateFormSalary(){
 			//checking the id
 			var salariesId = document.getElementById("salariesId");
@@ -600,7 +604,7 @@
 
 <body>
 
-     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Company</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -610,7 +614,7 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
 
-                <li class="nav-item ">
+                <li class="nav-item active">
                     <a class="nav-link" href="index.html">
                         <ion-icon name="home"></ion-icon> Home</a>
                 </li>
@@ -620,8 +624,8 @@
                         <ion-icon name="contacts"></ion-icon> Employees
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="employees.html">Show all employees</a>
-                        <a class="dropdown-item" href="addemployee.html">Add new employee</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/employees">Show all employees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addemployees"">Add new employee</a>
 
                 </li>
 
@@ -631,19 +635,19 @@
                         <ion-icon name="briefcase"></ion-icon> Departments
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="departments.html">Show all departments</a>
-                        <a class="dropdown-item" href="adddepartments.html">Add new department</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/departments">Show all departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/adddepartment">Add new department</a>
 
                 </li>
-                <li class="nav-item dropdown active">
+                <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
                         aria-expanded="false">
                         <ion-icon name="school"></ion-icon>
                         </span> Work titles
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="titles.html">Show all work titles for employeees</a>
-                        <a class="dropdown-item" href="addtitle.html">Add new work titles for employee</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/titles">Show all work titles for employeees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addtitles">Add new work titles for employee</a>
 
                 </li>
                 <li class="nav-item dropdown">
@@ -652,8 +656,28 @@
                         <ion-icon name="cash"></ion-icon> Salaries
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="salaries.html">Show all salaries for employeees</a>
-                        <a class="dropdown-item" href="addsalary.html">Add new salary for employee</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\salaries">Show all salaries for employeees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\addsalaries">Add new salary for employee</a>
+
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                       <ion-icon name="people"></ion-icon> Employees in departments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\depemp">Show all employees in departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddepemp">Add employee to department</a>
+
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                       <ion-icon name="ribbon"></ion-icon> Managers in departments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\deptmanagers">Show all managers in departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddeptmanager">Add manager to department</a>
 
                 </li>
             </ul>
@@ -674,7 +698,7 @@
 
     <div class="container-fluid text-center">
         <div class="row content">
-            <div id="sidebarleft" class="col-sm-2 sidenav container-fluid">
+            <div id="sidebarleft" class="col-sm-2 sidenav container-fluid d-none d-sm-block">
 
                 <p></p>
                 <div id="accordion" role="tablist">
@@ -740,64 +764,54 @@
                     <label>company@company.com</label>
                 </div>
             </div>
-            <div id="body" class="col-sm-8 text-left container-fluid ">
+            
+               <div id="body" class="col-sm-8 text-left container-fluid ">
                 <br>
-                <h1>Add new title</h1>
+                <h1>All managers in departments</h1>
                 <br>
-                <br>
-                <form method="POST" onsubmit="return validateFormTitle()">
-                    <div class="form-group row">
-                        <label for="titleId" class="col-sm-2 col-form-label">Id:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="titleId" placeholder="number">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="fromDate" class="col-sm-2 col-form-label">From date:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="fromDate" placeholder="mm/dd/yyyy">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="toDate" class="col-sm-2 col-form-label">To date:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="toDate" placeholder="mm/dd/yyyy">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="title" class="col-sm-2 col-form-label">Title:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="title" placeholder="Java Developer">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="employee" class="col-sm-2 col-form-label">Employee:</label>
-                        <div class="col-sm-8">
-                            <select id="employee" class="custom-select" required>
-                                <option value="0">[Select employee]</option>
-                                
-                                <option value="1">Joe Johnes</option>
-                                <option value="2">Mo Wiliams</option>
-                                <option value="3">John Doe</option>
-                                <option value="4">Jane Hill</option>
-                                
-                            </select>
-                        </div>
-                    </div>
-        
-        
-                  
-                   
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <button type="submit"  class="btn btn-primary">Add title to employee</button>
-                        </div>
-                    </div>
-                </form>
+<div class="table-responsive">
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"  >
+           
+  <caption>List of managers</caption>
+  <thead>
+                    <tr>
+                          <th>ID</th>
+                          <th>Department</th>
+                          <th>Employee</th>
+                        <th>From date</th>                    
+                        <th>To date</th>
+                        
+                        <th>Action</th>  
+                        <th>Action</th>   
+                    </tr>
+                </thead>
+                <tbody>
+         <c:forEach var="deptmanager" items="${deptmanagers}">
+				<tr>
+					<td>${deptmanager.deptManagerId}</td>
+					<td>${deptmanager.department}</td>
+					<td>${deptmanager.employee}</td>
+					<td>${deptmanager.fromDate}</td>
+					<td>${deptmanager.toDate}</td>
+
+
+
+					<td><a onclick="if(!(confirm('Are u sure u want to delete? '))) return false"
+						href="${pageContext.request.contextPath}/deletedeptmanager?deptManagerId=${deptmanager.deptManagerId}">Delete</a>
+					</td>
+					<td><a
+						href="${pageContext.request.contextPath}/updatedeptmanager?deptManagerId=${deptmanager.deptManagerId}">Update</a>
+					</td>
+				</tr>
+			</c:forEach>
+                </tbody>
+ 
+</table>
+</div>
 
 
                 <hr>
-
+               
 
                 <br/>
 
@@ -812,17 +826,19 @@
                 </div>
 
             </div>
-
-            <div id="rightsidebar" class="col-sm-2 sidenav containter">
+            
+            
+            
+            <div id="rightsidebar" class="col-sm-2 sidenav containter-fluid">
                 <p></p>
-                <div id="slider1" class="row">
+                <div id="slider1" class="row" >
                     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" src="resources/img/banner.jpg" alt="Engineering logo">
+                                <img class="d-block w-100" src="${pageContext.request.contextPath}/static/resources/img/banner.jpg" alt="Engineering logo">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" src="resources/img/banner2.jpg" alt="logo">
+                                <img class="d-block w-100" src="${pageContext.request.contextPath}/static/resources/img/banner2.jpg" alt="logo">
                             </div>
 
                         </div>
@@ -850,17 +866,17 @@
                 <br/>
 
 
-
-            </div>
-
-            <footer class="container-fluid text-center">
-
-                <div id="map-container" class="z-depth-1" style="height: 300px"></div>
+                    
         </div>
 
-
+        <footer class="container-fluid text-center">
+        
+            <div id="map-container" class="z-depth-1" style="height: 300px"></div>
+            </div>
+            
+        
         <div id="footer1" class=" container-fluid row">
-            <p id="anime">
+        <p id="anime">
                 <button type="button" class="start reset">Copyright &copy; web design. All rights reserved. | Engineering Software Lab | Stefan Vasić</button>
             </p>
         </div>

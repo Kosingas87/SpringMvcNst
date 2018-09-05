@@ -201,6 +201,59 @@ footer {
     <![endif]-->
 
 <script type="text/javascript">
+
+function validateFormDepEmp() {
+	//checking the id
+	var deptEmpId = document.forms["myformdepemp"]["deptEmpId"];
+	if (deptEmpId.value == "") {
+		alert("Please enter Id");
+		document.myformdepemp.deptEmpId.focus();
+		return false;
+	} else {
+		var regExpTitleId = /^^[1-9][0-9]?$|^100$/;
+		if (!regExpTitleId.test( deptEmpId.value)) {
+			alert("Please enter  id in correct format 1- 100");
+			document.myformdepemp.deptEmpId.focus();
+			return false;
+		}
+
+	}
+	
+	
+	//check from date
+	var fromDate = document.forms["myformdepemp"]["fromDate"];
+	if (fromDate.value == "") {
+		alert("Please enter from date");
+		document.myformdepemp.fromDate.focus();
+		return false;
+	} else {
+
+		var regExpFromDate = /^(19[8-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
+		if (!regExpFromDate.test(fromDate.value)) {
+			alert("From date is not in correct format");
+			document.myformdepemp.fromDate.focus();
+			return false;
+		}
+	}
+	//check to date
+	var toDate = document.forms["myformdepemp"]["toDate"]
+	if (toDate.value == "") {
+		alert("Please enter to date");
+		document.myformdepemp.toDate.focus();
+		return false;
+	} else {
+
+		var regExpToDate = /^(19[8-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
+		if (!regExpToDate.test(toDate.value)) {
+			alert("To date is not in correct format");
+			document.myformdepemp.toDate.focus();
+			return false;
+		}
+	}
+	
+
+}
+
 	function validateFormSalary() {
 		//checking the id
 		var salariesId = document.getElementById("salariesId");
@@ -729,28 +782,27 @@ footer {
 
 			<div id="body" class="col-sm-8 text-left container-fluid ">
 				<br>
-				<h1>Add new title to employee</h1>
-
+				<h1>Update  employee to the department</h1>
 
 
 				<div class="alert alert-light text-center" role="alert">
 					<h4 style="color: green;">${message}</h4>
 
 				</div>
-				<form name="myformtitle" method="POST"
-					action="${pageContext.request.contextPath}/docreatetitle"
-					onsubmit="return validateFormTitle()">
-
+				<form name="myformdepemp" method="POST"
+					action="${pageContext.request.contextPath}/docreatedepemp"
+					onsubmit="return validateFormDepEmp()">
+<c:forEach var="depemp" items="${depEmps}">
 					<div class="form-group row">
-						<label for="titlesId" class="col-sm-2 col-form-label">Id:</label>
+						<label for="deptEmpId" class="col-sm-2 col-form-label">Id:</label>
 						<div class="col-sm-8">
-							<input type="text" class="form-control" name="titlesId"
-								id="titlesId" placeholder="number">
+							<input type="text" class="form-control" name="deptEmpId"
+								id="deptEmpId"  value="${depemp.deptEmpId}">
 						</div>
 					</div>
 					<div class="form-group row">
 						
-						<label for="employee" class="col-sm-2 col-form-label">Select
+						<label for="empId" class="col-sm-2 col-form-label">Select
 									employee</label>
 							<div class="input-group-prepend col-sm-8">
 								
@@ -765,13 +817,29 @@ footer {
 						</div>
 
 					</div>
+						<div class="form-group row">
+						
+						<label for="deptId" class="col-sm-2 col-form-label">Select
+									department</label>
+							<div class="input-group-prepend col-sm-8">
+								
+							
+							<select class="custom-select" id="deptId" name="deptId">
+								<c:forEach var="department" items="${departments}">
+									<option value="${department.deptId}">${department.deptName}</option>
+						</c:forEach>
+							</select>
+							
+						</div>
+
+					</div>
 
 					<div class="form-group row">
 						<label for="fromDate" class="col-sm-2 col-form-label">From
 							date:</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="fromDate"
-								name="fromDate" placeholder="yyyy-mm-dd">
+								name="fromDate" value="${depemp.fromDate}">
 						</div>
 					</div>
 					<div class="form-group row">
@@ -779,25 +847,20 @@ footer {
 							date:</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="toDate" name="toDate"
-								placeholder="yyyy-mm-dd">
+								value="${depemp.toDate}">
 						</div>
 					</div>
-					<div class="form-group row">
-						<label for="title" class="col-sm-2 col-form-label">Title:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" id="title" name="title"
-								placeholder="Java developer">
-						</div>
-					</div>
+					
 
 
 
 					<div class="form-group row">
 						<div class="col-sm-10">
-							<button type="submit" class="btn btn-primary">Add title
+							<button type="submit" class="btn btn-primary">Update employee
 							</button>
 						</div>
 					</div>
+					</c:forEach>
 				</form>
 
 				<hr>

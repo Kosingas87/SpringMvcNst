@@ -604,7 +604,7 @@
 
 <body>
 
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Company</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
             aria-expanded="false" aria-label="Toggle navigation">
@@ -624,8 +624,8 @@
                         <ion-icon name="contacts"></ion-icon> Employees
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="employees.html">Show all employees</a>
-                        <a class="dropdown-item" href="addemployee.html">Add new employee</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/employees">Show all employees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addemployees"">Add new employee</a>
 
                 </li>
 
@@ -635,8 +635,8 @@
                         <ion-icon name="briefcase"></ion-icon> Departments
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="departments.html">Show all departments</a>
-                        <a class="dropdown-item" href="adddepartments.html">Add new department</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/departments">Show all departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/adddepartment">Add new department</a>
 
                 </li>
                 <li class="nav-item dropdown">
@@ -646,8 +646,8 @@
                         </span> Work titles
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="titles.html">Show all work titles for employeees</a>
-                        <a class="dropdown-item" href="addtitle.html">Add new work titles for employee</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/titles">Show all work titles for employeees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addtitles">Add new work titles for employee</a>
 
                 </li>
                 <li class="nav-item dropdown">
@@ -656,8 +656,28 @@
                         <ion-icon name="cash"></ion-icon> Salaries
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="salaries.html">Show all salaries for employeees</a>
-                        <a class="dropdown-item" href="addsalary.html">Add new salary for employee</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\salaries">Show all salaries for employeees</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\addsalaries">Add new salary for employee</a>
+
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                       <ion-icon name="people"></ion-icon> Employees in departments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\depemp">Show all employees in departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddepemp">Add employee to department</a>
+
+                </li>
+                 <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
+                        aria-expanded="false">
+                       <ion-icon name="ribbon"></ion-icon> Managers in departments
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\deptmanagers">Show all managers in departments</a>
+                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddeptmanager">Add manager to department</a>
 
                 </li>
             </ul>

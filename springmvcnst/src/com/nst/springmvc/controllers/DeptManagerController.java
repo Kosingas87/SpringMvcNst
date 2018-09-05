@@ -45,12 +45,17 @@ public class DeptManagerController {
 	public String doCreateTitle(Model model, DeptManager deptManager, BindingResult result, Long empId,Long deptId) {
 		Employee employee=employeeService.findByID(empId);
 		Department department=departmentService.findByID(deptId);
+		List<Employee> employees = employeeService.findAll();
+		List<Department> departments=departmentService.findAll();
 		deptManager.setEmployee(employee);
 		deptManager.setDepartment(department);
 		System.out.println(deptManager);
 		deptManagerService.save(deptManager);
 		System.out.println(deptManager);
 		System.out.println("Manager set for the department successfully");
+		model.addAttribute("employees", employees);
+		model.addAttribute("departments", departments);
+		model.addAttribute("message","Manager added to department succesfully!!!");
 		
 		
 		return "adddeptmanager";
