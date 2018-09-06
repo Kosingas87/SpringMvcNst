@@ -1,0 +1,155 @@
+        #body{
+            min-height: 900px;
+        }
+        .ui-widget-header,
+        .ui-state-default,
+        #button1,#button2,#open{
+            box-shadow: 5px 5px 2px grey;
+        }
+        ui-button {
+            background: lightblue;
+            border: 1px solid blue;
+            color: black;
+            font-weight: bold;
+        }
+        #fading p{
+            display:none;
+			padding:20px;
+			background: #DDA0DD;
+            
+        }
+        #fading li{
+            
+			list-style: none;
+        }
+       
+
+        #tales1 {
+            width: 100%;
+        }
+
+        #tales2 {
+            width: 100%;
+        }
+
+        #tales3 {
+            width: 100%;
+        }
+
+        .carousel-inner {
+            width: 100%;
+
+        }
+
+        #partial1 {
+            display: none;
+            padding: 20px;
+            background: #DDA0DD;
+        }
+
+        #partial2 {
+            display: none;
+            padding: 20px;
+            background: #DDA0DD;
+        }
+
+        #support {
+            margin: 0 33%;
+
+        }
+
+        #searchsup {
+            margin: 20px 10px;
+            margin-left: 30px;
+            color: #052644;
+        }
+
+        #profile1 {
+            background-image: url("../resources/img/search2.jpg");
+           
+            
+        }
+
+        #tired {
+            margin: auto;
+        }
+
+        #cycling img {
+            margin: auto;
+        }
+
+        #slider1 {
+            max-width: 200px;
+            margin: auto;
+        }
+
+        #dp {
+            max-width: 200px;
+            margin: auto;
+        }
+
+        #accordion-1 p {
+            max-width: 200px;
+        }
+
+        .ui-datepicker {
+            width: 200px;
+            /*what ever width you want*/
+            font-size: 16px;
+
+        }
+
+        .ui-accordion .ui-accordion-icons {
+            padding-left: 10px;
+        }
+
+        #dp {
+            padding: auto;
+            margin: auto;
+        }
+
+       
+
+        #rightsidebar {
+            background: silver;
+
+        }
+
+        #demo {
+            text-align: left;
+        }
+
+        #sidebarleft {
+            background: silver;
+        }
+
+        .ui-state-active,
+        .ui-widget-content .ui-state-active,
+        .ui-widget-header .ui-state-active {
+            color: #b525a3;
+            border: 1px solid #b525a3;
+        }
+
+        #anime {
+            max-width: 800px;
+            width: 450px;
+
+            font: 10px sans-serif;
+            margin: auto;
+            border: 1px solid #b525a3;
+            background: silver;
+            box-sizing: "border-box";
+        }
+
+        footer {
+            background: #5A5A66;
+        }
+        #footer1 {
+            background: #5A5A66;
+        }
+
+        .ui-widget-content {
+            border: 1px solid #dddddd;
+            background: #dadada url(resources/img/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x;
+            color: #333333;
+        }

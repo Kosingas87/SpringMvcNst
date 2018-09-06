@@ -13,178 +13,14 @@
     <!-- Include all compiled plugins (below), or include individual files as needed -->
      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
     <link href="https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel="stylesheet">
-
+  
     <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="https://unpkg.com/ionicons@4.4.2/dist/ionicons.js"></script>
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyB05Lu_HJONKdZ-_5gusGWznK9ryY2gcog"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-
-
-
-
-    <style>
-        #body{
-            min-height: 1000px;
-        }
-        .ui-widget-header,
-        .ui-state-default,
-        #button1,#button2,#open{
-            box-shadow: 5px 5px 2px grey;
-        }
-        ui-button {
-            background: lightblue;
-            border: 1px solid blue;
-            color: black;
-            font-weight: bold;
-        }
-        #fading p{
-            display:none;
-			padding:20px;
-			background: #DDA0DD;
-            
-        }
-        #fading li{
-            
-			list-style: none;
-        }
-       
-
-        #tales1 {
-            width: 100%;
-        }
-
-        #tales2 {
-            width: 100%;
-        }
-
-        #tales3 {
-            width: 100%;
-        }
-
-        .carousel-inner {
-            width: 100%;
-
-        }
-
-        #partial1 {
-            display: none;
-            padding: 20px;
-            background: #DDA0DD;
-        }
-
-        #partial2 {
-            display: none;
-            padding: 20px;
-            background: #DDA0DD;
-        }
-
-        #support {
-            margin: 0 33%;
-
-        }
-
-        #searchsup {
-            margin: 20px 10px;
-            margin-left: 30px;
-            color: #052644;
-        }
-
-        #profile1 {
-            background-image: url("${pageContext.request.contextPath}/static/resources/img/search2.jpg");
-            
-        }
-
-        #tired {
-            margin: auto;
-        }
-
-        #cycling img {
-            margin: auto;
-        }
-
-        #slider1 {
-            max-width: 200px;
-            margin: auto;
-        }
-
-        #dp {
-            max-width: 200px;
-            margin: auto;
-        }
-
-        #accordion-1 p {
-            max-width: 200px;
-        }
-
-        .ui-datepicker {
-            width: 200px;
-            /*what ever width you want*/
-            font-size: 16px;
-
-        }
-
-        .ui-accordion .ui-accordion-icons {
-            padding-left: 10px;
-        }
-
-        #dp {
-            padding: auto;
-            margin: auto;
-        }
-
-       
-
-        #rightsidebar {
-            background: silver;
-
-        }
-
-        #demo {
-            text-align: left;
-        }
-
-        #sidebarleft {
-            background: silver;
-        }
-
-        .ui-state-active,
-        .ui-widget-content .ui-state-active,
-        .ui-widget-header .ui-state-active {
-            color: #b525a3;
-            border: 1px solid #b525a3;
-        }
-
-        #anime {
-            max-width: 800px;
-            width: 450px;
-
-            font: 10px sans-serif;
-            margin: auto;
-            border: 1px solid #b525a3;
-            background: silver;
-            box-sizing: "border-box";
-        }
-
-        footer {
-            background: #5A5A66;
-        }
-        #footer1 {
-            background: #5A5A66;
-        }
-
-        .ui-widget-content {
-            border: 1px solid #dddddd;
-            background: #dadada url(resources/img/ui-bg_highlight-soft_100_eeeeee_1x100.png) 50% top repeat-x;
-            color: #333333;
-        }
-
-        #ded9d9
-    </style>
-
-
-
+ <link href="${pageContext.request.contextPath}/static/css/style.css" rel="stylesheet" type="text/css">
 
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
@@ -596,167 +432,15 @@
 
 <body>
 
-       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Company</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-            aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav mr-auto">
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">
-                        <ion-icon name="home"></ion-icon> Home</a>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <ion-icon name="contacts"></ion-icon> Employees
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/employees">Show all employees</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addemployees"">Add new employee</a>
-
-                </li>
-
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <ion-icon name="briefcase"></ion-icon> Departments
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/departments">Show all departments</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/adddepartment">Add new department</a>
-
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <ion-icon name="school"></ion-icon>
-                        </span> Work titles
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/titles">Show all work titles for employeees</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}/addtitles">Add new work titles for employee</a>
-
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                        <ion-icon name="cash"></ion-icon> Salaries
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}\salaries">Show all salaries for employeees</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}\addsalaries">Add new salary for employee</a>
-
-                </li>
-                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                       <ion-icon name="people"></ion-icon> Employees in departments
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}\depemp">Show all employees in departments</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddepemp">Add employee to department</a>
-
-                </li>
-                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"
-                        aria-expanded="false">
-                       <ion-icon name="ribbon"></ion-icon> Managers in departments
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}\deptmanagers">Show all managers in departments</a>
-                        <a class="dropdown-item" href="${pageContext.request.contextPath}\adddeptmanager">Add manager to department</a>
-
-                </li>
-            </ul>
-            <ul class="navbar-nav ml-auto">
-
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <ion-icon name="log-in"></ion-icon> Sign in</a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <ion-icon name="log-out"></ion-icon> Logout</a>
-                </li>
-            </ul>
-            </div>
-    </nav>
+    <%@include file="mainnav.jsp"  %>
 
 
-    <div class="container-fluid text-center">
-        <div class="row content">
-            <div id="sidebarleft" class="col-sm-2 sidenav container-fluid">
+    <div class="container-fluid     text-center">
+        <div class="row content   ">
+            <%@include file="acordionleft.jsp"  %>
+            
 
-                <p></p>
-                <div id="accordion" role="tablist">
-                    <div class="card">
-
-                        <div class="card-header" role="tab" id="headingOne">
-                            <h5 class="mb-0">
-                                <a data-toggle="collapse" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                                    <p>Company locations</p>
-                                </a>
-                            </h5>
-                        </div>
-
-                        <div id="collapseOne" class="collapse show" role="tabpanel" aria-labelledby="headingOne" data-parent="#accordion">
-
-                            <div class="card-body">
-                                Berlin
-                                <br/> London
-                                <br/> Rome
-                                <br/> Belgrade
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" role="tab" id="headingTwo">
-                            <h5 class="mb-0">
-                                <a class="collapsed" data-toggle="collapse" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
-                                    Company team buildings
-                                </a>
-                            </h5>
-                        </div>
-                        <div id="collapseTwo" class="collapse" role="tabpanel" aria-labelledby="headingTwo" data-parent="#accordion">
-                            <div class="card-body">
-                                Basketball
-                                <br/> Skying
-                                <br/> Table tennis
-                            </div>
-                        </div>
-                    </div>
-                    <div class="card">
-                        <div class="card-header" role="tab" id="headingThree">
-                            <h5 class="mb-0">
-                                <a class="collapsed" data-toggle="collapse" href="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                    Company collective vacation
-                                </a>
-                            </h5>
-                        </div>
-                        <div id="collapseThree" class="collapse" role="tabpanel" aria-labelledby="headingThree" data-parent="#accordion">
-                            <div class="card-body">
-                                August: 10 days
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <p></p>
-                <button id="button1" data-toggle="collapse" data-target="#demo">Our Contact</button>
-
-                <div id="demo" class="collapse">
-                    <label>
-                        <strong>Email:</strong>
-                    </label>
-                    <br/>
-                    <label>company@company.com</label>
-                </div>
-            </div>
-            <div id="body" class="col-sm-8 text-left container-fluid ">
+            <div id="body" class="col-xlg-12  col-md-12 text-left col-12 col-lg-8  container-fluid ">
             <br>
                 <h1>Welcome to our company</h1>
                 <section class="container-fluid py-4" data-width="100%" >
@@ -926,53 +610,15 @@
 
             </div>
 
-            <div id="rightsidebar" class="col-sm-2 sidenav containter-fluid">
-                <p></p>
-                <div id="slider1" class="row" >
-                    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-100" src="${pageContext.request.contextPath}/static/resources/img/banner.jpg" alt="Engineering logo">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-100" src="${pageContext.request.contextPath}/static/resources/img/banner2.jpg" alt="logo">
-                            </div>
+           <%@include file="rightsidebar.jsp"  %>
 
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
-                    </div>
-
-                </div>
-                <br/>
-                <div id="dp" class="row">
-                    <div id="datepicker-2"></div>
-                </div>
-                <br/>
-
-
-                <p id="tired">
-                    <button id="open" class="hide">Getting tired?</button>
-                </p>
-                <br/>
-
-
-                    
-        </div>
-
-        <footer class="container-fluid text-center">
+        <footer class="container-fluid  row text-center">
         
             <div id="map-container" class="z-depth-1" style="height: 300px"></div>
             </div>
             
         
-        <div id="footer1" class=" container-fluid row">
+        <div id="footer1" class=" container-fluid ">
         <p id="anime">
                 <button type="button" class="start reset">Copyright &copy; web design. All rights reserved. | Engineering Software Lab | Stefan Vasić</button>
             </p>
