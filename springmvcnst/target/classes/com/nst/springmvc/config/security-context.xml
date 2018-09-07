@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:security="http://www.springframework.org/schema/security"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	
+	<security:authentication-manager>
+	<security:authentication-provider>
+	
+	<security:jdbc-user-service data-source-ref="dataSource"/>
+	
+	 </security:authentication-provider>
+	
+	</security:authentication-manager>
+	
+	<security:http use-expressions="true">
+	<security:intercept-url pattern="/createaccount" access="hasAuthority('admin')" />
+		<security:intercept-url pattern="/employees" access="isAuthenticated()" />
+		<security:intercept-url pattern="/departments" access="isAuthenticated()" />
+		<security:intercept-url pattern="/titles" access="isAuthenticated()" />
+		<security:intercept-url pattern="/salaries" access="isAuthenticated()" />
+		<security:intercept-url pattern="/deptmanagers" access="isAuthenticated()" />
+		<security:intercept-url pattern="/addemployees" access="isAuthenticated()" />
+		<security:intercept-url pattern="/depemp" access="isAuthenticated()" />
+		<security:intercept-url pattern="/deletesalaries" access="isAuthenticated()" />
+		<security:intercept-url pattern="/addtitles" access="isAuthenticated()" />
+		<security:intercept-url pattern="/adddetmanager" access="isAuthenticated()" />
+		<security:intercept-url pattern="/docreate" access="isAuthenticated()" />
+		<security:intercept-url pattern="/adddepemp" access="isAuthenticated()" />
+		<security:intercept-url pattern="/docreatedepartment" access="isAuthenticated()" />
+		<security:intercept-url pattern="/addsalaries" access="isAuthenticated()" />
+		<security:intercept-url pattern="/docreatetitle" access="isAuthenticated()" />
+		<security:intercept-url pattern="/docreatedeptmanager" access="isAuthenticated()" />
+		<security:intercept-url pattern="/docreatedepemp" access="isAuthenticated()" />
+		<security:intercept-url pattern="/deletesalarysale" access="isAuthenticated()" />
+		<security:intercept-url pattern="/deleteemployee" access="isAuthenticated()" />
+		<security:intercept-url pattern="/updateemployee" access="isAuthenticated()" />
+		<security:intercept-url pattern="/deletetitle" access="isAuthenticated()" />
+		<security:intercept-url pattern="/updatetitle" access="isAuthenticated()" />
+		<security:intercept-url pattern="/doupdate" access="isAuthenticated()" />
+		<security:intercept-url pattern="/doupdatedepartment" access="isAuthenticated()" />
+		<security:intercept-url pattern="/updatedepemp" access="isAuthenticated()" />
+		<security:intercept-url pattern="/updatesalaries" access="isAuthenticated()" />
+		<security:intercept-url pattern="/doupdatetitle" access="isAuthenticated()" />
+		<security:intercept-url pattern="/doupdatedeptmanager" access="isAuthenticated()" />
+		<security:intercept-url pattern="/doupdatedepemp" access="isAuthenticated()" />
+		<security:intercept-url pattern="/doupdatesalaries" access="isAuthenticated()" />
+		
+		<security:intercept-url pattern="/resources/img/cycling.jpg"   access="permitAll" />
+		
+		<security:intercept-url pattern="/"   access="permitAll" />
+		<security:intercept-url pattern="/home"   access="permitAll" />
+		<security:intercept-url pattern="/home.jsp"   access="permitAll" />
+		<security:intercept-url pattern="/static/**" access="permitAll" />
+		
+		<security:intercept-url pattern="/login" access="permitAll" />
+		<security:intercept-url pattern="/loggedout" access="permitAll" />
+		
+		<security:intercept-url pattern="/**" access="denyAll" />
+		<security:form-login login-page="/login"    />
+		<security:logout logout-success-url="/loggedout"  />
+		<security:csrf disabled="true" />
+		
+	</security:http>
+</beans>
