@@ -10,6 +10,7 @@
 		<config>WebContent/WEB-INF/nst-servlet.xml</config>
 		<config>src/com/nst/springmvc/config/dao-context.xml</config>
 		<config>src/com/nst/springmvc/config/service-context.xml</config>
+		<config>src/com/nst/springmvc/config/security-context.xml</config>
 	</configs>
 	<autoconfigs>
 	</autoconfigs>

@@ -10,4 +10,13 @@ public class HomeController {
 	public String showHome() {
 		return "home";
 	}
+	@RequestMapping(value="/login")
+	public String showLogin( ) {
+		return "login";
+	}
+	@RequestMapping("/loggedout")
+	public String showLoggedOut() {
+	
+		return "loggedout";
+	}
 }

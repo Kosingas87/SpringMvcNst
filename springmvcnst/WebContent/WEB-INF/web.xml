@@ -40,7 +40,18 @@
     <param-value>
  	 classpath:com/nst/springmvc/config/dao-context.xml
  	 classpath:com/nst/springmvc/config/service-context.xml
+ 	 classpath:com/nst/springmvc/config/security-context.xml
   </param-value>
   </context-param>
+  <filter>
+    <display-name>springSecurityFilterChain</display-name>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>springSecurityFilterChain</filter-name>
+    <url-pattern>/*</url-pattern>
+  </filter-mapping>
+ 
   
 </web-app>

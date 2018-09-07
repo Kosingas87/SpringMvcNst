@@ -81,17 +81,40 @@
             </ul>
             <ul class="navbar-nav ml-auto">
 
+                
+<!--                 <sec:authorize access="!isAuthenticated()"> -->
+<%-- 	<c:url var="loginUrl" value="login" /> --%>
+<%-- 	<form action="${loginUrl}" method="post"> --%>
+<!-- 	<input type="submit" value="login">  -->
+<%-- 	<input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }">  --%>
+<!-- </form> -->
+<!-- 	</sec:authorize> -->
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <ion-icon name="log-in"></ion-icon> Sign in</a>
+                                <sec:authorize access="!isAuthenticated()">
+	<c:url var="loginUrl" value="login" />
+	<form action="${loginUrl}" method="post">
+	<input type="submit" class="btn btn-info"   value="login">
+                  
+                         <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }"> 
+                </form>
+	</sec:authorize>
+                
+                    
                 </li>
                 <li class="nav-item active">
-                    <a class="nav-link" href="#">
-                        <ion-icon name="log-out"></ion-icon> Logout</a>
+                <sec:authorize access="isAuthenticated()">
+	<c:url var="logoutUrl" value="logout" />
+	<form action="${logoutUrl}" method="post">
+	<input type="submit" class="btn btn-info"   value="logout">
+                   
+                        <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token }"> 
+</form>
+</sec:authorize>
                 </li>
             </ul>
             </div>
     </nav>
 
+	
 
     
