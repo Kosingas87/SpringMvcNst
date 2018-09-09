@@ -3,6 +3,8 @@ package com.nst.springmvc.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -35,7 +37,7 @@ public class EmployeesController {
 	}
 
 	@RequestMapping(value = "/docreate", method = RequestMethod.POST)
-	public String doCreate(Model model, Employee employee, BindingResult result,RedirectAttributes attributes) {
+	public String doCreate(Model model, @Valid Employee employee, BindingResult result,RedirectAttributes attributes) {
 
 		employeeService.save(employee);
 		System.out.println(employee);
@@ -66,7 +68,7 @@ public class EmployeesController {
 	}
 
 	@RequestMapping(value = "/doupdate")
-	public String doUpdate(Model model, Employee employee, BindingResult result) {
+	public String doUpdate(Model model, @Valid Employee employee, BindingResult result) {
 
 		employeeService.save(employee);
 		List<Employee> employees = employeeService.findAll();

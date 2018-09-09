@@ -2,12 +2,14 @@ package com.nst.springmvc.domen;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @DiscriminatorValue("SS")
 public class Sale extends Salary {
 	private static final long serialVersionUID = 1L;
 	@Column(name="commision")
+	
 	private float commision;
 
 	

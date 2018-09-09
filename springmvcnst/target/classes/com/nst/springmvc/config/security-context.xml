@@ -19,6 +19,7 @@
 	<security:intercept-url pattern="/createaccount" access="hasAuthority('admin')" />
 		<security:intercept-url pattern="/employees" access="isAuthenticated()" />
 		<security:intercept-url pattern="/departments" access="isAuthenticated()" />
+		<security:intercept-url pattern="/adddepartment" access="hasAuthority('admin')" />
 		<security:intercept-url pattern="/titles" access="isAuthenticated()" />
 		<security:intercept-url pattern="/salaries" access="isAuthenticated()" />
 		<security:intercept-url pattern="/deptmanagers" access="isAuthenticated()" />
@@ -35,7 +36,10 @@
 		<security:intercept-url pattern="/docreatedeptmanager" access="isAuthenticated()" />
 		<security:intercept-url pattern="/docreatedepemp" access="isAuthenticated()" />
 		<security:intercept-url pattern="/deletesalarysale" access="isAuthenticated()" />
+		<security:intercept-url pattern="/docreatesalarysale" access="isAuthenticated()" />
+		<security:intercept-url pattern="/docreatesalarynonsale" access="isAuthenticated()" />
 		<security:intercept-url pattern="/deleteemployee" access="isAuthenticated()" />
+		<security:intercept-url pattern="/deletedepemp" access="isAuthenticated()" />
 		<security:intercept-url pattern="/updateemployee" access="isAuthenticated()" />
 		<security:intercept-url pattern="/deletetitle" access="isAuthenticated()" />
 		<security:intercept-url pattern="/updatetitle" access="isAuthenticated()" />
@@ -44,12 +48,13 @@
 		<security:intercept-url pattern="/updatedepemp" access="isAuthenticated()" />
 		<security:intercept-url pattern="/updatesalaries" access="isAuthenticated()" />
 		<security:intercept-url pattern="/doupdatetitle" access="isAuthenticated()" />
-		<security:intercept-url pattern="/doupdatedeptmanager" access="isAuthenticated()" />
+		<security:intercept-url pattern="/adddeptmanager" access="isAuthenticated()" />
+		<security:intercept-url pattern="/adddeptmanager" access="isAuthenticated()" />
 		<security:intercept-url pattern="/doupdatedepemp" access="isAuthenticated()" />
 		<security:intercept-url pattern="/doupdatesalaries" access="isAuthenticated()" />
-		
+		<security:intercept-url pattern="/deletedeptmanager" access="isAuthenticated()" />
 		<security:intercept-url pattern="/resources/img/cycling.jpg"   access="permitAll" />
-		
+				<security:intercept-url pattern="/deletedepartment" access="isAuthenticated()" />
 		<security:intercept-url pattern="/"   access="permitAll" />
 		<security:intercept-url pattern="/home"   access="permitAll" />
 		<security:intercept-url pattern="/home.jsp"   access="permitAll" />

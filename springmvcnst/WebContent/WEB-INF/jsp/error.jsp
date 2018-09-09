@@ -1,11 +1,10 @@
-
 	 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
         <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -25,11 +24,12 @@
     <script src="https://maps.google.com/maps/api/js?key=AIzaSyB05Lu_HJONKdZ-_5gusGWznK9ryY2gcog"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
         crossorigin="anonymous">
-        <link href="${pageContext.request.contextPath}/static/css/style.css" rel="stylesheet" type="text/css">
+	<link href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap4.min.css" rel="stylesheet">
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
+	<script type="text/javascript" src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap4.min.js"></script>
+    <link href="${pageContext.request.contextPath}/static/css/style.css" rel="stylesheet" type="text/css">
 
-
-
- 
+    
 
 
 
@@ -42,10 +42,11 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
    
-    <script type="text/javascript">
-
-    
-    
+    <script>
+    $(document).ready(function () {
+    	  $('#dtBasicExample').DataTable();
+    	  $('.dataTables_length').addClass('bs-select');
+    	});
             function validateFormSalary(){
 			//checking the id
 			var salariesId = document.getElementById("salariesId");
@@ -82,36 +83,36 @@
 				return false;
                 }
 			}
-//             //check from date
-// 			var fromDate = document.getElementById("fromDate");
-// 			if(fromDate.value == ""){
-// 				alert("Please enter from date");
-// 				fromDate.focus();
-// 				return false;
-// 			} else {
+            //check from date
+			var fromDate = document.getElementById("fromDate");
+			if(fromDate.value == ""){
+				alert("Please enter from date");
+				fromDate.focus();
+				return false;
+			} else {
 				
-// 				var regExpFromDate = /^(19[5-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
-// 				if(!regExpFromDate.test(fromDate.value)){
-// 					alert("From date is not in correct format");
-// 					fromDate.focus();
-// 					return false;
-// 				}
-// 			}
-//             //check to date
-// 			var toDate = document.getElementById("toDate");
-// 			if(toDate.value == ""){
-// 				alert("Please enter to date");
-// 				toDate.focus();
-// 				return false;
-// 			} else {
+				var regExpFromDate = /^(|(0[1-9])|(1[0-2]))\/((0[1-9])|(1\d)|(2\d)|(3[0-1]))\/((\d{4}))$/;
+				if(!regExpFromDate.test(fromDate.value)){
+					alert("From date is not in correct format");
+					fromDate.focus();
+					return false;
+				}
+			}
+            //check to date
+			var toDate = document.getElementById("toDate");
+			if(toDate.value == ""){
+				alert("Please enter to date");
+				toDate.focus();
+				return false;
+			} else {
 				
-// 				var regExpToDate =  /^(19[8-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;;
-// 				if(!regExpToDate.test(toDate.value)){
-// 					alert("To date is not in correct format");
-// 					toDate.focus();
-// 					return false;
-// 				}
-// 			}
+				var regExpToDate = /^(|(0[1-9])|(1[0-2]))\/((0[1-9])|(1\d)|(2\d)|(3[0-1]))\/((\d{4}))$/;
+				if(!regExpToDate.test(toDate.value)){
+					alert("To date is not in correct format");
+					toDate.focus();
+					return false;
+				}
+			}
             //check if the employee was selected
 			if (document.getElementById("employee").value == "0"){
 				alert("You must select employee");
@@ -223,85 +224,120 @@
 			}}
     		function validateForm(){
                 //checking the id
-			var empId = document.forms["myform"]["empId"].value;
-			if (empId== ""){
+			var employeeId = document.getElementById("employeeId");
+			if (employeeId.value == ""){
 				alert("Please enter  employee Id");
-				document.myform.empId.focus();
+				employeeId.focus();
 				return false;
 			} else {
-                var regExpEmpId = /^^[1-9][0-9]?$|^100$/;
-				if (!regExpEmpId.test(empId)){
+                var regExpEmployeeId = /^^[1-9][0-9]?$|^100$/;
+				if (!regExpEmployeeId.test(employeeId.value)){
 					alert("Please enter employee id in correct format 1- 100");
-					document.myform.empId.focus();
+					employeeId.focus();
 					return false;
 				} 
 				
 			
 			}
 			//checking the First name
-			var firstName = document.forms["myform"]["firstName"]
+			var firstName = document.getElementById("firstName");
 			if (firstName.value == ""){
 				alert("Please enter your first name");
-				document.myform.firstName.focus();
+				name.focus();
 				return false;
 			} else {
 				var regExpFirstName = /^[A-Z][a-z]+$/;
 				if (!regExpFirstName.test(firstName.value)){
 					alert("Please enter first name in correct format");
-					document.myform.firstName.focus();
+					firstName.focus();
 					return false;
 				} 
 			}
             //checking the last name
-			var lastName = document.forms["myform"]["lastName"]
+			var lastName = document.getElementById("lastName");
 			if (lastName.value == ""){
 				alert("Please enter your last name");
-				document.myform.lastName.focus();
+				lastName.focus();
 				return false;
 			} else {
 				var regExpLastName = /^[A-Z][a-z]+$/;
 				if (!regExpLastName.test(lastName.value)){
 					alert("Please enter last name in correct format");
-					document.myform.lastName.focus();
+					lastName.focus();
 					return false;
 				} 
 			}
             //check if the gender is selected
-			if (document.forms["myform"]["gender"].value == "0"){
+			if (document.getElementById("gender").value == "0"){
 				alert("You must select gender");
 				return false;
 			}
 			//check birth date
-			var birthDate = document.forms["myform"]["birthDate"];
+			var birthDate = document.getElementById("birthDate");
 			if(birthDate.value == ""){
 				alert("Please enter your birth date");
-				document.myform.birthDate.focus();
+				birthDate.focus();
 				return false;
 			} else {
 				
-				var regExpBirthDate = /^(19[5-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
+				var regExpBirthDate = /^(|(0[1-9])|(1[0-2]))\/((0[1-9])|(1\d)|(2\d)|(3[0-1]))\/((\d{4}))$/;
 				if(!regExpBirthDate.test(birthDate.value)){
 					alert("Birth date is not in correct format");
-					document.myform.birthDate.focus();
+					date.focus();
 					return false;
 				}
 			}
             //check hire date
-			var hireDate =document.forms["myform"]["hireDate"];
+			var hireDate = document.getElementById("hireDate");
 			if(hireDate.value == ""){
 				alert("Please enter your hire date");
-				document.myform.hireDate.focus();
+				hireDate.focus();
 				return false;
 			} else {
 				
-				var regExpHireDate =/^(19[8-9]\d|20[0-4]\d|2050)\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/;
+				var regExpHireDate = /^(|(0[1-9])|(1[0-2]))\/((0[1-9])|(1\d)|(2\d)|(3[0-1]))\/((\d{4}))$/;
 				if(!regExpHireDate.test(hireDate.value)){
 					alert("Hire date is not in correct format");
-					document.myform.hireDate.focus();
+					hireDate.focus();
 					return false;
 				}
 			}
-			
+			//check email
+			var email = document.getElementById("email");
+			if(email.value == ""){
+				alert("Please enter your email");
+				email.focus();
+				return false;
+			} else {
+				//validate email
+				var regExpEmail = 	
+/^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+				if(!regExpEmail.test(email.value)){
+					alert("Email is not in correct format");
+					email.focus();
+					return false;
+				}
+			}
+
+			//check if the city was selected
+			if (document.getElementById("city").value == "0"){
+				alert("You must provide your city");
+				return false;
+			}
+            //checking the university
+			var university = document.getElementById("university");
+			if (university.value == ""){
+				alert("Please enter your university");
+				university.focus();
+				return false;
+			} else {
+				var regExpUniversity = /^(Fakultet organizacionih nauka|Elektro tehnicki fakultet|Singidunum|Megatrend|Prirodno matematicki fakultet)$/;
+				if (!regExpUniversity.test(university.value)){
+					alert("Your university name does not match our needs, u must choose corect university name from autocomplete");
+					university.focus();
+					return false;
+				} 
+			}
 				
 		}
 		
@@ -370,10 +406,10 @@
         });
         $(function () {
             $("#datepicker-2").datepicker();
-            $("#birthDate").datepicker({dateFormat: 'yy-mm-dd'} );
-            $("#hireDate").datepicker({dateFormat: 'yy-mm-dd'});
-            $("#fromDate").datepicker({dateFormat: 'yy-mm-dd'});
-            $("#toDate").datepicker({dateFormat: 'yy-mm-dd'});
+            $("#birthDate").datepicker();
+            $("#hireDate").datepicker();
+            $("#fromDate").datepicker();
+            $("#toDate").datepicker();
         });
 
         $(document).ready(function singleClick() {
@@ -418,71 +454,22 @@
     <div class="container-fluid text-center">
         <div class="row content">
             <%@include file="acordionleft.jsp"  %>
-           
+            
             <div id="body" class="col-xlg-12  col-md-12 text-left col-12 col-lg-8  container-fluid ">
                 <br>
-                 <h1 >Add new employee      </h1>
-                
-              
-                
-                <div class="alert alert-light text-center" role="alert" >
-<h4 style="color:green;"> ${message}</h4>
-  
+                <br>
+                <br>
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <h1>
+  <strong>Error has happened!</strong> Sorry for inconvenience try again later!</h1>
+  <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
 </div>
-                <form  name="myform" method="POST" action="${pageContext.request.contextPath}/docreate" onsubmit="return validateForm()">
-                        
-                        <div class="form-group row">
-                        <label for="empId" class="col-sm-2 col-form-label">Id:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" name="empId" id="empId" placeholder="number">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="birthDate" class="col-sm-2 col-form-label">Birth date:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="birthDate" name="birthDate" placeholder="yyyy-mm-dd">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="firstName" class="col-sm-2 col-form-label">First name:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="firstName" name="firstName" placeholder="John">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="lastName" class="col-sm-2 col-form-label">Last name:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="lastName" name="lastName"  placeholder="John">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <label for="gender" class="col-sm-2 col-form-label">Gender:</label>
-                        <div class="col-sm-8">
-                            <select id="gender" name="gender" class="custom-select" required>
-                                <option value="0">[Select gender]</option>
-                                <option value="M">Male</option>
-                                <option value="F">Female</option>
-                                
-                            </select>
-                        </div>
-                    </div>
-                    
-                    <div class="form-group row">
-                        <label for="hireDate" class="col-sm-2 col-form-label">Hire date:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" id="hireDate" name="hireDate" placeholder="yyyy-mm-dd">
-                        </div>
-                    </div>
-                    
-                   
-                  
-                   
-                    <div class="form-group row">
-                        <div class="col-sm-10">
-                            <button type="submit"  class="btn btn-primary">Add employee</button>
-                        </div>
-                    </div>
-                </form>
+                
+                <br>
+
+
 
                 <hr>
                
@@ -501,9 +488,9 @@
 
             </div>
             
-            <%@include file="rightsidebar.jsp"  %>
             
-       
+            
+            <%@include file="rightsidebar.jsp"  %>
 
         <footer class="container-fluid text-center">
         

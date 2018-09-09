@@ -2,12 +2,14 @@ package com.nst.springmvc.domen;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @DiscriminatorValue("NS")
 public class NonSale extends Salary{
 	private static final long serialVersionUID = 1L;
 	@Column(name="bonus")
+
 	private float bonus;
 
 	

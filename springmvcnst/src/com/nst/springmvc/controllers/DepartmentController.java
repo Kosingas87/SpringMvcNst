@@ -3,6 +3,8 @@ package com.nst.springmvc.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +39,7 @@ public class DepartmentController {
 	}
 
 	@RequestMapping(value = "/docreatedepartment", method = RequestMethod.POST)
-	public String doCreatedepartment(Model model, Department department,  BindingResult result) {
+	public String doCreatedepartment(Model model, @Valid Department department,  BindingResult result) {
 	
 		departmentService.save(department);
 		System.out.println(department);
@@ -67,7 +69,7 @@ public class DepartmentController {
 	}
 
 	@RequestMapping(value = "/doupdatedepartment")
-	public String doUpdate(Model model, Department department, BindingResult result) {
+	public String doUpdate(Model model,@Valid Department department, BindingResult result) {
         
 	
 		departmentService.save(department);

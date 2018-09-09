@@ -34,8 +34,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/departments">Show all departments</a>
+                        <sec:authorize access="hasAuthority('admin')">
                         <a class="dropdown-item" href="${pageContext.request.contextPath}/adddepartment">Add new department</a>
-
+	</sec:authorize>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true"

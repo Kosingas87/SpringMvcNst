@@ -5,6 +5,7 @@ import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 import javax.xml.bind.annotation.XmlRootElement;
 
 import org.springframework.format.annotation.DateTimeFormat;
@@ -27,9 +28,11 @@ public class Employee implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "birth_date")
 	@DateTimeFormat(pattern="yyyy-mm-dd")
+	
 	private Date birthDate;
 
 	@Column(name = "first_name")
+	@NotEmpty
 	private String firstName;
 
 	private String gender;
@@ -37,9 +40,11 @@ public class Employee implements Serializable {
 	@Temporal(TemporalType.DATE)
 	@Column(name = "hire_date")
 	@DateTimeFormat(pattern="yyyy-mm-dd")
+	
 	private Date hireDate;
 
 	@Column(name = "last_name")
+	@NotEmpty
 	private String lastName;
 
 	// bi-directional many-to-one association to DepEmp

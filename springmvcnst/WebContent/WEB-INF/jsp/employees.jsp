@@ -1,10 +1,10 @@
 	 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
         <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -460,7 +460,7 @@
                 <h1>All employees</h1>
                 <br>
 <div class="table-responsive">
-        <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"  >
+        <table id="dtBasicExample" class="table table-striped table-bordered table-sm scrollX" cellspacing="0" width="100%"  >
   <caption>List of employees</caption>
   <thead>
                     <tr>

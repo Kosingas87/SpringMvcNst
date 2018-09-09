@@ -3,6 +3,8 @@ package com.nst.springmvc.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -46,7 +48,7 @@ public class SalaryController {
 		return "addsalaries";
 	}
 	@RequestMapping(value = "/docreatesalarysale", method = RequestMethod.POST)
-	public String doCreateSalary(Model model, Sale sale, BindingResult result, Long empId) {
+	public String doCreateSalary(Model model, @Valid Sale sale, BindingResult result, Long empId) {
 		Employee employee=employeeService.findByID(empId);
 		
 		sale.setEmployee(employee);
@@ -61,7 +63,7 @@ public class SalaryController {
 
 	}
 	@RequestMapping(value = "/docreatesalarynonsale", method = RequestMethod.POST)
-	public String doCreateSalary(Model model, NonSale nonSale, BindingResult result, Long empId) {
+	public String doCreateSalary(Model model,@Valid NonSale nonSale, BindingResult result, Long empId) {
 		Employee employee=employeeService.findByID(empId);
 		
 		nonSale.setEmployee(employee);
@@ -86,7 +88,7 @@ public class SalaryController {
 		return "updatesalaries";
 	}
 	@RequestMapping(value = "/doupdatesalaries")
-	public String doUpdate(Model model, NonSale nonSale, BindingResult result, Long empId) {
+	public String doUpdate(Model model,@Valid NonSale nonSale, BindingResult result, Long empId) {
 		if (result.hasErrors()){
 			System.out.println("Form is not valid");
 		List<ObjectError> errors = result.getAllErrors();

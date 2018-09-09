@@ -5,6 +5,7 @@ import java.util.List;
 import javax.persistence.*;
 
 import javax.persistence.Entity;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "departments")
@@ -17,6 +18,7 @@ public class Department implements Serializable {
 	private long deptId;
 
 	@Column(name = "dept_name")
+	@NotEmpty
 	private String deptName;
 
 	// bi-directional many-to-one association to DepEmp

@@ -3,6 +3,8 @@ package com.nst.springmvc.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -42,7 +44,7 @@ public class DeptManagerController {
 		return "adddeptmanager";
 	}
 	@RequestMapping(value = "/docreatedeptmanager", method = RequestMethod.POST)
-	public String doCreateTitle(Model model, DeptManager deptManager, BindingResult result, Long empId,Long deptId) {
+	public String doCreateTitle(Model model, @Valid DeptManager deptManager, BindingResult result, Long empId,Long deptId) {
 		Employee employee=employeeService.findByID(empId);
 		Department department=departmentService.findByID(deptId);
 		List<Employee> employees = employeeService.findAll();
@@ -82,7 +84,7 @@ public class DeptManagerController {
 	}
 
 	@RequestMapping(value = "/doupdatedeptmanager")
-	public String doUpdate(Model model, DeptManager deptManager, BindingResult result, Long empId,Long deptId) {
+	public String doUpdate(Model model, @Valid DeptManager deptManager, BindingResult result, Long empId,Long deptId) {
         Employee employee=employeeService.findByID(empId);
         Department department=departmentService.findByID(deptId);
 		

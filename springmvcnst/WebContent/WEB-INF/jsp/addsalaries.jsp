@@ -1,9 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+
 	 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 
 <%@ page language="java" contentType="text/html; charset=utf-8" pageEncoding="utf-8"%>
-<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+
 
         <%@ taglib uri="http://java.sun.com/jsp/jstl/sql" prefix="sql" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -712,7 +711,7 @@
 						<label for="bonus" class="col-sm-2 col-form-label">Fixed bonus:</label>
 						<div class="col-sm-8">
 							<input type="text" class="form-control" id="bonus" name="bonus"
-								placeholder="10000">
+								placeholder="10">
 						</div>
 					</div>
 

@@ -2,6 +2,7 @@ package com.nst.springmvc.domen;
 
 import java.io.Serializable;
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 import org.springframework.format.annotation.DateTimeFormat;
 
@@ -24,11 +25,13 @@ public class Salary implements Serializable {
 	
 	
 	@Column(name = "salary")
+	@NotEmpty
 	private String salary;
 	
 	@Temporal(TemporalType.DATE)
 	@DateTimeFormat(pattern="yyyy-mm-dd")
 	@Column(name = "from_date")
+	
 	private Date fromDate;
 	
 	@Temporal(TemporalType.DATE)
