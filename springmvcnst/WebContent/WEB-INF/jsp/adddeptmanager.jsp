@@ -54,20 +54,20 @@
 <script type="text/javascript">
 function validateFormDeptManager() {
 	//checking the id
-	var deptManagerId = document.forms["myformdepemp"]["deptManagerId"];
-	if (deptManagerId.value == "") {
-		alert("Please enter Id");
-		document.myformdepemp.deptManagerId.focus();
-		return false;
-	} else {
-		var regExpTitleId = /^^[1-9][0-9]?$|^100$/;
-		if (!regExpTitleId.test( deptManagerId.value)) {
-			alert("Please enter  id in correct format 1- 100");
-			document.myformdepemp.deptManagerId.focus();
-			return false;
-		}
+// 	var deptManagerId = document.forms["myformdepemp"]["deptManagerId"];
+// 	if (deptManagerId.value == "") {
+// 		alert("Please enter Id");
+// 		document.myformdepemp.deptManagerId.focus();
+// 		return false;
+// 	} else {
+// 		var regExpTitleId = /^^[1-9][0-9]?$|^100$/;
+// 		if (!regExpTitleId.test( deptManagerId.value)) {
+// 			alert("Please enter  id in correct format 1- 100");
+// 			document.myformdepemp.deptManagerId.focus();
+// 			return false;
+// 		}
 
-	}
+// 	}
 	
 	
 	//check from date
@@ -544,13 +544,13 @@ function validateFormDepEmp() {
 					action="${pageContext.request.contextPath}/docreatedeptmanager"
 					onsubmit="return validateFormDeptManager()">
 
-					<div class="form-group row">
-						<label for="deptManagerId" class="col-sm-2 col-form-label">Id:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="deptManagerId"
-								id="deptManagerId" placeholder="number">
-						</div>
-					</div>
+<!-- 					<div class="form-group row"> -->
+<!-- 						<label for="deptManagerId" class="col-sm-2 col-form-label">Id:</label> -->
+<!-- 						<div class="col-sm-8"> -->
+<!-- 							<input type="text" class="form-control" name="deptManagerId" -->
+<!-- 								id="deptManagerId" placeholder="number"> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 					<div class="form-group row">
 						
 						<label for="empId" class="col-sm-2 col-form-label">Select

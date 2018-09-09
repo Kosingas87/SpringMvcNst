@@ -16,6 +16,8 @@ public class DepEmp implements Serializable {
 
 	@Id
 	@Column(name="dept_emp_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
 	private long deptEmpId;
 
 

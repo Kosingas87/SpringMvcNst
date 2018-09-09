@@ -223,21 +223,21 @@
 			}}
     		function validateForm(){
                 //checking the id
-			var empId = document.forms["myform"]["empId"].value;
-			if (empId== ""){
-				alert("Please enter  employee Id");
-				document.myform.empId.focus();
-				return false;
-			} else {
-                var regExpEmpId = /^^[1-9][0-9]?$|^100$/;
-				if (!regExpEmpId.test(empId)){
-					alert("Please enter employee id in correct format 1- 100");
-					document.myform.empId.focus();
-					return false;
-				} 
+// 			var empId = document.forms["myform"]["empId"].value;
+// 			if (empId== ""){
+// 				alert("Please enter  employee Id");
+// 				document.myform.empId.focus();
+// 				return false;
+// 			} else {
+//                 var regExpEmpId = /^^[1-9][0-9]?$|^100$/;
+// 				if (!regExpEmpId.test(empId)){
+// 					alert("Please enter employee id in correct format 1- 100");
+// 					document.myform.empId.focus();
+// 					return false;
+// 				} 
 				
 			
-			}
+// 			}
 			//checking the First name
 			var firstName = document.forms["myform"]["firstName"]
 			if (firstName.value == ""){
@@ -431,12 +431,12 @@
 </div>
                 <form  name="myform" method="POST" action="${pageContext.request.contextPath}/docreate" onsubmit="return validateForm()">
                         
-                        <div class="form-group row">
-                        <label for="empId" class="col-sm-2 col-form-label">Id:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" name="empId" id="empId" placeholder="number">
-                        </div>
-                    </div>
+<!--                         <div class="form-group row"> -->
+<!--                         <label for="empId" class="col-sm-2 col-form-label">Id:</label> -->
+<!--                         <div class="col-sm-8"> -->
+<!--                             <input type="text" class="form-control" name="empId" id="empId" placeholder="number"> -->
+<!--                         </div> -->
+<!--                     </div> -->
                     <div class="form-group row">
                         <label for="birthDate" class="col-sm-2 col-form-label">Birth date:</label>
                         <div class="col-sm-8">

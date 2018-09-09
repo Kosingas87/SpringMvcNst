@@ -127,20 +127,20 @@
 
 	function validateFormTitle() {
 		//checking the id
-		var titleId = document.forms["myformtitle"]["titlesId"];
-		if (titleId.value == "") {
-			alert("Please enter  title Id");
-			document.myformtitle.titlesId.focus();
-			return false;
-		} else {
-			var regExpTitleId = /^^[1-9][0-9]?$|^100$/;
-			if (!regExpTitleId.test(titleId.value)) {
-				alert("Please enter title id in correct format 1- 100");
-				document.myformtitle.titlesId.focus();
-				return false;
-			}
+// 		var titleId = document.forms["myformtitle"]["titlesId"];
+// 		if (titleId.value == "") {
+// 			alert("Please enter  title Id");
+// 			document.myformtitle.titlesId.focus();
+// 			return false;
+// 		} else {
+// 			var regExpTitleId = /^^[1-9][0-9]?$|^100$/;
+// 			if (!regExpTitleId.test(titleId.value)) {
+// 				alert("Please enter title id in correct format 1- 100");
+// 				document.myformtitle.titlesId.focus();
+// 				return false;
+// 			}
 
-		}
+// 		}
 		//checking the title name
 		var title = document.forms["myformtitle"]["title"];
 		if (title.value == "") {
@@ -442,13 +442,13 @@
 					action="${pageContext.request.contextPath}/docreatetitle"
 					onsubmit="return validateFormTitle()">
 
-					<div class="form-group row">
-						<label for="titlesId" class="col-sm-2 col-form-label">Id:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="titlesId"
-								id="titlesId" placeholder="number">
-						</div>
-					</div>
+<!-- 					<div class="form-group row"> -->
+<!-- 						<label for="titlesId" class="col-sm-2 col-form-label">Id:</label> -->
+<!-- 						<div class="col-sm-8"> -->
+<!-- 							<input type="text" class="form-control" name="titlesId" -->
+<!-- 								id="titlesId" placeholder="number"> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 					<div class="form-group row">
 						
 						<label for="employee" class="col-sm-2 col-form-label">Select

@@ -56,20 +56,20 @@
 
 function validateFormDepEmp() {
 	//checking the id
-	var deptEmpId = document.forms["myformdepemp"]["deptEmpId"];
-	if (deptEmpId.value == "") {
-		alert("Please enter Id");
-		document.myformdepemp.deptEmpId.focus();
-		return false;
-	} else {
-		var regExpTitleId = /^^[1-9][0-9]?$|^100$/;
-		if (!regExpTitleId.test( deptEmpId.value)) {
-			alert("Please enter  id in correct format 1- 100");
-			document.myformdepemp.deptEmpId.focus();
-			return false;
-		}
+// 	var deptEmpId = document.forms["myformdepemp"]["deptEmpId"];
+// 	if (deptEmpId.value == "") {
+// 		alert("Please enter Id");
+// 		document.myformdepemp.deptEmpId.focus();
+// 		return false;
+// 	} else {
+// 		var regExpTitleId = /^^[1-9][0-9]?$|^100$/;
+// 		if (!regExpTitleId.test( deptEmpId.value)) {
+// 			alert("Please enter  id in correct format 1- 100");
+// 			document.myformdepemp.deptEmpId.focus();
+// 			return false;
+// 		}
 
-	}
+// 	}
 	
 	
 	//check from date
@@ -495,13 +495,13 @@ function validateFormDepEmp() {
 					action="${pageContext.request.contextPath}/docreatedepemp"
 					onsubmit="return validateFormDepEmp()">
 
-					<div class="form-group row">
-						<label for="deptEmpId" class="col-sm-2 col-form-label">Id:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="deptEmpId"
-								id="deptEmpId" placeholder="number">
-						</div>
-					</div>
+<!-- 					<div class="form-group row"> -->
+<!-- 						<label for="deptEmpId" class="col-sm-2 col-form-label">Id:</label> -->
+<!-- 						<div class="col-sm-8"> -->
+<!-- 							<input type="text" class="form-control" name="deptEmpId" -->
+<!-- 								id="deptEmpId" placeholder="number"> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 					<div class="form-group row">
 						
 						<label for="empId" class="col-sm-2 col-form-label">Select

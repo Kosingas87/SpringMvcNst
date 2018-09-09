@@ -48,6 +48,7 @@
     <![endif]-->
 
 <script type="text/javascript">
+
 	function validateFormSalary() {
 		//checking the id
 		var salariesId = document.getElementById("salariesId");
@@ -452,8 +453,8 @@
 							<div class="input-group-prepend col-sm-8">
 
 
-								<select class="custom-select" id="empId" name="empId">
-									<c:forEach var="employee" items="${employees}">
+								<select class="custom-select" id="empId" name="empId" >
+									<c:forEach var="employee" items="${employees}" >
 										<option value="${employee.empId}">${employee.firstName}
 											${employee.lastName}</option>
 									</c:forEach>

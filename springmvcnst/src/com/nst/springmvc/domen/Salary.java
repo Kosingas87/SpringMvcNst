@@ -19,6 +19,8 @@ public class Salary implements Serializable {
 
 	@Id
 	@Column(name = "salaries_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
 	private long salariesId;
 	
 

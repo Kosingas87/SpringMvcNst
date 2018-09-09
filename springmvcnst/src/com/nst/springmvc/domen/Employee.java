@@ -23,6 +23,8 @@ public class Employee implements Serializable {
 
 	@Id
 	@Column(name = "emp_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
 	private long empId;
 
 	@Temporal(TemporalType.DATE)

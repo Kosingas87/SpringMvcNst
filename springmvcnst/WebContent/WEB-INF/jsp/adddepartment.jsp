@@ -192,21 +192,21 @@
             
             function validateFormDepartment(){
 			//checking the id
-			var departmentId = document.forms["myformdepartment"]["deptId"]
-			if (departmentId.value == ""){
-				alert("Please enter  department Id");
-				document.myformdepartment.deptId.focus();
-				return false;
-			} else {
-                var regExpDepartmentId = /^^[1-9][0-9]?$|^100$/;
-				if (!regExpDepartmentId.test(departmentId.value)){
-					alert("Please enter department name in correct format 1- 100");
-					document.myformdepartment.deptId.focus();
-					return false;
-				} 
+// 			var departmentId = document.forms["myformdepartment"]["deptId"]
+// 			if (departmentId.value == ""){
+// 				alert("Please enter  department Id");
+// 				document.myformdepartment.deptId.focus();
+// 				return false;
+// 			} else {
+//                 var regExpDepartmentId = /^^[1-9][0-9]?$|^100$/;
+// 				if (!regExpDepartmentId.test(departmentId.value)){
+// 					alert("Please enter department name in correct format 1- 100");
+// 					document.myformdepartment.deptId.focus();
+// 					return false;
+// 				} 
 				
 			
-			}
+// 			}
             //checking the department name
 			var departmentName = document.forms["myformdepartment"]["deptName"]
 			if (departmentName.value == ""){
@@ -431,12 +431,12 @@
 </div>
                 <form  name="myformdepartment" method="POST" action="${pageContext.request.contextPath}/docreatedepartment" onsubmit="return validateFormDepartment()">
                         
-                        <div class="form-group row">
-                        <label for="empId" class="col-sm-2 col-form-label">Id:</label>
-                        <div class="col-sm-8">
-                            <input type="text" class="form-control" name="deptId" id="deptId" placeholder="number">
-                        </div>
-                    </div>
+<!--                         <div class="form-group row"> -->
+<!--                         <label for="empId" class="col-sm-2 col-form-label">Id:</label> -->
+<!--                         <div class="col-sm-8"> -->
+<!--                             <input type="text" class="form-control" name="deptId" id="deptId" placeholder="number"> -->
+<!--                         </div> -->
+<!--                     </div> -->
                     <div class="form-group row">
                         <label for="deptName" class="col-sm-2 col-form-label">Department name:</label>
                         <div class="col-sm-8">

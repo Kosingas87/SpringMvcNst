@@ -3,8 +3,6 @@ package com.nst.springmvc.domen;
 import java.io.Serializable;
 import java.util.List;
 import javax.persistence.*;
-
-import javax.persistence.Entity;
 import javax.validation.constraints.NotEmpty;
 
 @Entity
@@ -15,6 +13,8 @@ public class Department implements Serializable {
 
 	@Id
 	@Column(name = "dept_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
 	private long deptId;
 
 	@Column(name = "dept_name")

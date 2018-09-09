@@ -187,21 +187,21 @@
         }
             function validateFormSalary(){
 			//checking the id
-			var salariesId = document.getElementById("salariesId");
-			if (salariesId.value == ""){
-				alert("Please enter  salaries Id");
-				salariesId.focus();
-				return false;
-			} else {
-                var regExpSalariesId = /^^[1-9][0-9]?$|^100$/;
-				if (!regExpSalariesId.test(salariesId.value)){
-					alert("Please enter salaries id in correct format 1- 100");
-					salariesId.focus();
-					return false;
-				} 
+// 			var salariesId = document.getElementById("salariesId");
+// 			if (salariesId.value == ""){
+// 				alert("Please enter  salaries Id");
+// 				salariesId.focus();
+// 				return false;
+// 			} else {
+//                 var regExpSalariesId = /^^[1-9][0-9]?$|^100$/;
+// 				if (!regExpSalariesId.test(salariesId.value)){
+// 					alert("Please enter salaries id in correct format 1- 100");
+// 					salariesId.focus();
+// 					return false;
+// 				} 
 				
 			
-			}
+// 			}
             //checking the salary
 			var salary = document.getElementById("salary");
 			if (salary.value == ""){
@@ -659,13 +659,13 @@
 					action="${pageContext.request.contextPath}/docreatesalarynonsale"
 					onsubmit="return validateFormSalary()">
 
-					<div class="form-group row">
-						<label for="salariesId" class="col-sm-2 col-form-label">Id:</label>
-						<div class="col-sm-8">
-							<input type="text" class="form-control" name="salariesId"
-								id="salariesId" placeholder="1-100">
-						</div>
-					</div>
+<!-- 					<div class="form-group row"> -->
+<!-- 						<label for="salariesId" class="col-sm-2 col-form-label">Id:</label> -->
+<!-- 						<div class="col-sm-8"> -->
+<!-- 							<input type="text" class="form-control" name="salariesId" -->
+<!-- 								id="salariesId" placeholder="1-100"> -->
+<!-- 						</div> -->
+<!-- 					</div> -->
 					<div class="form-group row">
 						
 						<label for="employee" class="col-sm-2 col-form-label">Select

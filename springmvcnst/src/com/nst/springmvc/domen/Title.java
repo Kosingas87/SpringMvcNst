@@ -16,6 +16,8 @@ public class Title implements Serializable {
 
 	@Id
 	@Column(name = "titles_id")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Basic(optional = false)
 	private Long titlesId;
 
 	@Temporal(TemporalType.DATE)
