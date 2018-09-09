@@ -461,6 +461,11 @@
                 <br>
                 <h1>All departments</h1>
                 <br>
+                <div class="alert alert-light text-center" role="alert">
+					<h4 style="color: green;">${message}</h4>
+
+				</div>
+				<br>
 <div class="table-responsive">
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"  >
            
@@ -502,7 +507,7 @@
                     <br/>
 
                     <br/>
-                    <img src="resources/img/cycling.jpg" alt="cycling" class="img-thumbnail">
+                     <img src="${pageContext.request.contextPath}/static/resources/img/cycling.jpg" alt="cycling" class="img-thumbnail">
 
                 </div>
 

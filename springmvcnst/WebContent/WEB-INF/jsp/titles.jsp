@@ -459,6 +459,11 @@
                 <br>
                 <h1>All titles for employees</h1>
                 <br>
+                <div class="alert alert-light text-center" role="alert">
+					<h4 style="color: green;">${message}</h4>
+
+				</div>
+				<br>
 <div class="table-responsive">
         <table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%"  >
            

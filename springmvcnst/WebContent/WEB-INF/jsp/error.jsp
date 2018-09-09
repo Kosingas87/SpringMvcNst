@@ -482,7 +482,8 @@
                     <br/>
 
                     <br/>
-                    <img src="resources/img/cycling.jpg" alt="cycling" class="img-thumbnail">
+                     <img src="${pageContext.request.contextPath}/static/resources/img/cycling.jpg" alt="cycling" class="img-thumbnail">
+
 
                 </div>
 

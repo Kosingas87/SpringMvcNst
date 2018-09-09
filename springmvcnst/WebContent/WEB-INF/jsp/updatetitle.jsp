@@ -503,9 +503,9 @@
 
 				<br /> <br />
 				<div id="dialog1" title="Cycling">
-					Cycling in your free time will bring you up!! <br /> <br /> <img
-						src="resources/img/cycling.jpg" alt="cycling"
-						class="img-thumbnail">
+					Cycling in your free time will bring you up!! <br /> <br /> 
+ <img src="${pageContext.request.contextPath}/static/resources/img/cycling.jpg" alt="cycling" class="img-thumbnail">
+
 
 				</div>
 

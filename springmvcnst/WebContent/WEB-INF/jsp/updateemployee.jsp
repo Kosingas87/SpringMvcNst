@@ -477,7 +477,7 @@
                    
                     <div class="form-group row">
                         <div class="col-sm-10">
-                            <button type="submit"  class="btn btn-primary">Add employee</button>
+                            <button type="submit"  class="btn btn-primary">Update employee</button>
                         </div>
                     </div>
                     </c:forEach>
@@ -494,7 +494,7 @@
                     <br/>
 
                     <br/>
-                    <img src="resources/img/cycling.jpg" alt="cycling" class="img-thumbnail">
+                     <img src="${pageContext.request.contextPath}/static/resources/img/cycling.jpg" alt="cycling" class="img-thumbnail">
 
                 </div>
 
